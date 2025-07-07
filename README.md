@@ -2,8 +2,8 @@
 [亿海蓝官网](https://www.shipxy.com/)&nbsp;&nbsp;
 [API控制台](https://api.shipxy.com/v3/console/index)&nbsp;&nbsp;
 [在线开发文档](https://hiiau7lsqq.feishu.cn/wiki/E0wAwrPpvieGhSk5wLCctNqonVb)&nbsp;&nbsp;
-[github](https://github.com/shipxy-com/shipxy-api-java)&nbsp;&nbsp;
-[gitee](https://gitee.com/shipxy-com/shipxy-api-java)&nbsp;&nbsp;
+[github](https://github.com/shipxycom/shipxy-api-java)&nbsp;&nbsp;
+[gitee](https://gitee.com/shipxycom/shipxy-api-java)&nbsp;&nbsp;
 
 ## 示例用法
 ```
