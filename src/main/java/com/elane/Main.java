@@ -3,12 +3,14 @@ package com.elane;
 import cn.hutool.json.JSONObject;
 import com.elane.api.Shipxy;
 import com.elane.params.*;
+import com.elane.api.Key;
 
 public class Main {
-    private static String key = "484db43a65ec4f87b5b4dcc69e586bf7";
+//    private static String key = Key.key;
+    private static String key = "请从 API控制台 申请";
 
     public static void main(String[] args) {
-//        SearchShipFn();
+        SearchShipFn();
 //        GetSingleShipFn();
 //        GetManyShipFn();
 //        GetFleetShipFn();
