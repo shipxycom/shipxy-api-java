@@ -4,9 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.elane</groupId>
+    <groupId>io.github.shipxycom</groupId>
     <artifactId>shipxy-api-java</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1</version>
+
+    <name>shipxy-api</name>
+    <description>亿海蓝Elane船讯网 https://www.shipxy.com/</description>
+    <url>https://www.shipxy.com/</url>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -94,10 +98,10 @@
             <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
-                <version>0.7.0</version>
+                <version>0.8.0</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <publishingServerId>central</publishingServerId>
+                    <publishingServerId>serverDragon</publishingServerId>
                 </configuration>
             </plugin>
         </plugins>
