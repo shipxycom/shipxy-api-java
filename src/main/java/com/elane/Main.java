@@ -3,10 +3,9 @@ package com.elane;
 import cn.hutool.json.JSONObject;
 import com.elane.api.Shipxy;
 import com.elane.params.*;
-//import com.elane.api.Key;
 
 public class Main {
-//    private static String key = Key.key;
+//    private static String key = com.elane.api.Key.key;
     private static String key = "请从 API控制台 申请";
 
     public static void main(String[] args) {
