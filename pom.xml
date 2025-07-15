@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.shipxycom</groupId>
-    <artifactId>shipxy-api-java</artifactId>
-    <version>1.0.1</version>
+    <artifactId>shipxy-api</artifactId>
+    <version>1.0.2</version>
 
     <name>shipxy-api</name>
     <description>亿海蓝Elane船讯网 https://www.shipxy.com/</description>
@@ -29,20 +29,6 @@
             <artifactId>hutool-ai</artifactId>
             <version>5.8.38</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <version>3.3.1</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <version>3.11.2</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -52,6 +38,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
                 <configuration>
                     <!-- 源码包随着项目打成的jar包安装到本地仓库或者私服、公服 -->
                     <attach>true</attach>
@@ -68,6 +55,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.11.2</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -116,7 +104,7 @@
 
     <developers>
         <developer>
-            <name>shipxy</name>
+            <name>White</name>
             <email>249898979@qq.com</email>
         </developer>
     </developers>
