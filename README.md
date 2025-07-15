@@ -4,8 +4,16 @@
 [在线开发文档](https://hiiau7lsqq.feishu.cn/wiki/E0wAwrPpvieGhSk5wLCctNqonVb)&nbsp;&nbsp;
 [github](https://github.com/shipxycom/shipxy-api-java)&nbsp;&nbsp;
 [gitee](https://gitee.com/shipxycom/shipxy-api-java)&nbsp;&nbsp;
+[sonatype](https://central.sonatype.com/artifact/io.github.shipxycom/shipxy-api)&nbsp;&nbsp;
 
 ## 示例用法
+```
+<dependency>
+    <groupId>io.github.shipxycom</groupId>
+    <artifactId>shipxy-api</artifactId>
+    <version>1.0.2</version>
+</dependency>
+```
 ```
 import cn.hutool.json.JSONObject;
 import com.elane.api.Shipxy;
