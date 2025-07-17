@@ -297,9 +297,10 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject GetPortofCallByPort(GetPortofCallByPortParams params) {
+    public static GetPortOfCallByPortResponse GetPortofCallByPort(GetPortofCallByPortParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethodJson("GetPortofCallByPort", paramMap);
+        String resultStr = getMethod("GetPortofCallByPort", paramMap);
+        return new Gson().fromJson(resultStr, GetPortOfCallByPortResponse.class);
     }
 
     /**

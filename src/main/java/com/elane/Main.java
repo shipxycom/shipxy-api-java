@@ -31,8 +31,8 @@ public class Main {
 
 //        GetPortofCallByShipFn();
 //        GetPortofCallByShipPortFn();
-        GetShipStatusFn();
-//        GetPortofCallByPortFn();
+//        GetShipStatusFn();
+        GetPortofCallByPortFn();
 
 //        PlanRouteByPointFn();
 //        PlanRouteByPortFn();
@@ -226,9 +226,9 @@ public class Main {
         GetPortofCallByPortParams params = new GetPortofCallByPortParams();
         params.setKey(key);
         params.setPort_code("CNSHG");
-        params.setStart_time(1751007589);
+        params.setStart_time(1751440300);
         params.setEnd_time(1751440378);
-        JSONObject result = Shipxy.GetPortofCallByPort(params);
+        GetPortOfCallByPortResponse result = Shipxy.GetPortofCallByPort(params);
         System.out.println(result);
     }
 
