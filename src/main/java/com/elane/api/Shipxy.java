@@ -571,9 +571,11 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject AddArea(AddAreaParams params) {
+    public static AreaResponse AddArea(AddAreaParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return postMethodJson("AddArea", paramMap);
+
+        String resultStr = postMethod("AddArea", paramMap);
+        return new Gson().fromJson(resultStr, AreaResponse.class);
     }
 
     /**
@@ -583,9 +585,10 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject UpdateArea(UpdateAreaParams params) {
+    public static AreaResponse UpdateArea(UpdateAreaParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return postMethodJson("UpdateArea", paramMap);
+        String resultStr = postMethod("UpdateArea", paramMap);
+        return new Gson().fromJson(resultStr, AreaResponse.class);
     }
 
     /**
@@ -596,11 +599,12 @@ public class Shipxy {
      * @param area_id 区域的ID：必填，区域的id，唯一标识，用来对区域的删改查
      * @return
      */
-    public static JSONObject GetArea(String key, String area_id) {
+    public static AreaResponse GetArea(String key, String area_id) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("area_id", area_id);
-        return postMethodJson("GetArea", paramMap);
+        String resultStr = getMethod("GetArea", paramMap);
+        return new Gson().fromJson(resultStr, AreaResponse.class);
     }
 
     /**
@@ -611,10 +615,12 @@ public class Shipxy {
      * @param area_id 区域的ID：必填，区域的id，唯一标识，用来对区域的删改查
      * @return
      */
-    public static JSONObject DeleteArea(String key, String area_id) {
+    public static BaseResponse DeleteArea(String key, String area_id) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("area_id", area_id);
-        return postMethodJson("DeleteArea", paramMap);
+
+        String resultStr = postMethod("DeleteArea", paramMap);
+        return new Gson().fromJson(resultStr, BaseResponse.class);
     }
 }

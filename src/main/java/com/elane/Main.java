@@ -55,7 +55,7 @@ public class Main {
 //        UpdateFleetShipFn();
 //        DeleteFleetShipFn();
 
-        AddAreaFn();
+//        AddAreaFn();
 //        UpdateAreaFn();
 //        GetAreaFn();
 //        DeleteAreaFn();
@@ -375,32 +375,32 @@ public class Main {
         params.setUrl("http://192.186.1.1:8000/shipxy/testdemo");
         params.setFilter_type(3);
 //        params.setShip_type("59");
-        params.setFleet_id("6db8d8ec-858d-4417-86c0-666d61e340bf");
-        JSONObject result = Shipxy.AddArea(params);
+        params.setFleet_id("0372ec4c-eead-49ce-b005-6ffa731cc1df");
+        AreaResponse result = Shipxy.AddArea(params);
         System.out.println(result);
     }
 
     public static void UpdateAreaFn() {
         UpdateAreaParams params = new UpdateAreaParams();
         params.setKey(key);
-        params.setArea_id("4503ca40-a901-4784-8e5b-b80174315f8f");
+        params.setArea_id("b7a40fa4-daae-4586-a56a-b09457331628");
         params.setArea_bounds("119.846180,32.345143-119.814280,32.311867-119.4661,32.291067-119.375887,32.213847");
         params.setArea_name("浙江沿海区域11");
         params.setUrl("http://192.186.1.1:8000/shipxy/testdemo");
         params.setFilter_type(3);
 //        params.setShip_type("59");
         params.setFleet_id("6db8d8ec-858d-4417-86c0-666d61e340bf");
-        JSONObject result = Shipxy.UpdateArea(params);
+        AreaResponse result = Shipxy.UpdateArea(params);
         System.out.println(result);
     }
 
     public static void GetAreaFn() {
-        JSONObject result = Shipxy.GetArea(key,"4503ca40-a901-4784-8e5b-b80174315f8f");
+        AreaResponse result = Shipxy.GetArea(key,"b7a40fa4-daae-4586-a56a-b09457331628");
         System.out.println(result);
     }
 
     public static void DeleteAreaFn() {
-        JSONObject result = Shipxy.DeleteArea(key,"4503ca40-a901-4784-8e5b-b80174315f8f");
+        BaseResponse result = Shipxy.DeleteArea(key,"c18525d5-ac35-42eb-bee7-c791261d908d");
         System.out.println(result);
     }
 }
