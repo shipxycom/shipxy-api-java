@@ -19,10 +19,10 @@ public class Main {
 //        GetSurRoundingShipFn();
 //        GetAreaShipFn();
 //        GetShipRegistryFn();
-        SearchShipParticularFn();
+//        SearchShipParticularFn();
 
 //        SearchPortFn();
-//        GetBerthShipsFn();
+        GetBerthShipsFn();
 //        GetAnchorShipsFn();
 
 //        GetETAShipsFn();
@@ -140,9 +140,13 @@ public class Main {
         PortParams params = new PortParams();
         params.setKey(key);
         params.setPort_code("CNSHG");
-//        params.setShip_type(52);
-        JSONObject result = Shipxy.GetBerthShips(params);
+        params.setShip_type(99);
+        GetBerthShipsResponse result = Shipxy.GetBerthShips(params);
         System.out.println(result);
+        if(result.getTotal()>0){
+            System.out.println(result.getData().get(0).getMmsi());
+        }
+
     }
 
     public static void GetAnchorShipsFn() {
