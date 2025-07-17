@@ -178,9 +178,10 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject SearchPort(SearchParams params) {
+    public static SearchPortResponse SearchPort(SearchParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethodJson("SearchPort", paramMap);
+        String resultStr = getMethod("SearchPort", paramMap);
+        return new Gson().fromJson(resultStr, SearchPortResponse.class);
     }
 
     /**

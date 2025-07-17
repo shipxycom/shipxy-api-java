@@ -5,6 +5,8 @@ import com.elane.api.Shipxy;
 import com.elane.params.*;
 import com.elane.result.*;
 
+import java.util.List;
+
 public class Main {
     private static String key = com.elane.api.Key.key;
 //    private static String key = "请从 API控制台 申请";
@@ -129,8 +131,9 @@ public class Main {
         SearchParams params = new SearchParams();
         params.setKey(key);
         params.setKeywords("CNS");
-        JSONObject result = Shipxy.SearchPort(params);
+        SearchPortResponse result = Shipxy.SearchPort(params);
         System.out.println(result);
+        System.out.println(result.getData().get(0).getPort_code());
     }
 
     public static void GetBerthShipsFn() {

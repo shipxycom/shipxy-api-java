@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class SearchShipParticularResponse {
+public class SearchPortResponse {
     /**
      * 状态
      */
@@ -15,7 +15,11 @@ public class SearchShipParticularResponse {
      */
     private String msg;
     /**
+     * 总数
+     */
+    private Integer total;
+    /**
      * 数据
      */
-    private List<ShipParticularData> data;
+    private List<PortData> data;
 }
