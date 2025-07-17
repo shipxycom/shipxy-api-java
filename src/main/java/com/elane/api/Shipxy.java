@@ -310,9 +310,10 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject PlanRouteByPoint(PlanRouteByPointParams params) {
+    public static PlanRouteByPointResponse PlanRouteByPoint(PlanRouteByPointParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethodJson("PlanRouteByPoint", paramMap);
+        String resultStr = getMethod("PlanRouteByPoint", paramMap);
+        return new Gson().fromJson(resultStr, PlanRouteByPointResponse.class);
     }
 
     /**
@@ -322,9 +323,10 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject PlanRouteByPort(PlanRouteByPortParams params) {
+    public static PlanRouteByPortResponse PlanRouteByPort(PlanRouteByPortParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethodJson("PlanRouteByPort", paramMap);
+        String resultStr = getMethod("PlanRouteByPort", paramMap);
+        return new Gson().fromJson(resultStr, PlanRouteByPortResponse.class);
     }
 
     /**
@@ -334,9 +336,11 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject GetSingleETAPrecise(GetSingleETAPreciseParams params) {
+    public static GetSingleETAPreciseResponse GetSingleETAPrecise(GetSingleETAPreciseParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethodJson("GetSingleETAPrecise", paramMap);
+
+        String resultStr = getMethod("GetSingleETAPrecise", paramMap);
+        return new Gson().fromJson(resultStr, GetSingleETAPreciseResponse.class);
     }
 
     /**

@@ -32,11 +32,11 @@ public class Main {
 //        GetPortofCallByShipFn();
 //        GetPortofCallByShipPortFn();
 //        GetShipStatusFn();
-        GetPortofCallByPortFn();
+//        GetPortofCallByPortFn();
 
 //        PlanRouteByPointFn();
 //        PlanRouteByPortFn();
-//        GetSingleETAPreciseFn();
+        GetSingleETAPreciseFn();
 
 //        GetWeatherByPointFn();
 //        GetWeatherFn();
@@ -230,6 +230,7 @@ public class Main {
         params.setEnd_time(1751440378);
         GetPortOfCallByPortResponse result = Shipxy.GetPortofCallByPort(params);
         System.out.println(result);
+        System.out.println(result.getData().get(0).getMmsi());
     }
 
     public static void PlanRouteByPointFn() {
@@ -237,8 +238,9 @@ public class Main {
         params.setKey(key);
         params.setStart_point("113.571144,22.844316");
         params.setEnd_point("121.58414,31.37979");
-        JSONObject result = Shipxy.PlanRouteByPoint(params);
+        PlanRouteByPointResponse result = Shipxy.PlanRouteByPoint(params);
         System.out.println(result);
+        System.out.println(result.getData().getRoute().get(0).getLng());
     }
 
     public static void PlanRouteByPortFn() {
@@ -246,8 +248,9 @@ public class Main {
         params.setKey(key);
         params.setStart_port_code("CNGZG");
         params.setEnd_port_code("CNSHG");
-        JSONObject result = Shipxy.PlanRouteByPort(params);
+        PlanRouteByPortResponse result = Shipxy.PlanRouteByPort(params);
         System.out.println(result);
+        System.out.println(result.getData().getRoute().get(0).getLng());
     }
 
     public static void GetSingleETAPreciseFn() {
@@ -255,8 +258,9 @@ public class Main {
         params.setKey(key);
         params.setMmsi(477172700);
         params.setPort_code("CNSHG");
-        JSONObject result = Shipxy.GetSingleETAPrecise(params);
+        GetSingleETAPreciseResponse result = Shipxy.GetSingleETAPrecise(params);
         System.out.println(result);
+        System.out.println(result.getData().getNextport().getAisSpeed());
     }
 
     public static void GetWeatherByPointFn() {
