@@ -45,7 +45,7 @@ public class Main {
 //        GetTidesFn();
 //        GetTideDataFn();
 
-        GetNavWarningFn();
+//        GetNavWarningFn();
 
 //        AddFleetFn();
 //        UpdateFleetFn();
@@ -54,7 +54,8 @@ public class Main {
 //        AddFleetShipFn();
 //        UpdateFleetShipFn();
 //        DeleteFleetShipFn();
-//        AddAreaFn();
+
+        AddAreaFn();
 //        UpdateAreaFn();
 //        GetAreaFn();
 //        DeleteAreaFn();
@@ -326,43 +327,43 @@ public class Main {
         params.setFleet_name("测试船队11");
         params.setMmsis("477985700,412751690");
         params.setMonitor("6");
-        JSONObject result = Shipxy.AddFleet(params);
+        FleetResponse result = Shipxy.AddFleet(params);
         System.out.println(result);
     }
 
     public static void UpdateFleetFn() {
         UpdateFleetParams params = new UpdateFleetParams();
         params.setKey(key);
-        params.setFleet_id("6db8d8ec-858d-4417-86c0-666d61e340bf");
+        params.setFleet_id("0372ec4c-eead-49ce-b005-6ffa731cc1df");
         params.setFleet_name("测试船队");
-        params.setMmsis("477985700");
+        params.setMmsis("477985709");
         params.setMonitor("6");
-        JSONObject result = Shipxy.UpdateFleet(params);
+        FleetResponse result = Shipxy.UpdateFleet(params);
         System.out.println(result);
     }
 
     public static void GetFleetFn() {
-        JSONObject result = Shipxy.GetFleet(key,"6db8d8ec-858d-4417-86c0-666d61e340bf");
+        FleetResponse result = Shipxy.GetFleet(key,"0372ec4c-eead-49ce-b005-6ffa731cc1df");
         System.out.println(result);
     }
 
     public static void DeleteFleetFn() {
-        JSONObject result = Shipxy.DeleteFleet(key,"78007616-5fc9-4ef3-b706-7e60aa30b40d");
+        BaseResponse result = Shipxy.DeleteFleet(key,"f777007b-fb88-4c4c-b4eb-db33e84e99ee");
         System.out.println(result);
     }
 
     public static void AddFleetShipFn() {
-        JSONObject result = Shipxy.AddFleetShip(key,"6db8d8ec-858d-4417-86c0-666d61e340bf","477985700,412751690");
+        FleetResponse result = Shipxy.AddFleetShip(key,"0372ec4c-eead-49ce-b005-6ffa731cc1df","477985700,412751690");
         System.out.println(result);
     }
 
     public static void UpdateFleetShipFn() {
-        JSONObject result = Shipxy.AddFleetShip(key,"6db8d8ec-858d-4417-86c0-666d61e340bf","477985700,412751690");
+        FleetResponse result = Shipxy.UpdateFleetShip(key,"0372ec4c-eead-49ce-b005-6ffa731cc1df","477985706,412751696");
         System.out.println(result);
     }
 
     public static void DeleteFleetShipFn() {
-        JSONObject result = Shipxy.DeleteFleetShip(key,"6db8d8ec-858d-4417-86c0-666d61e340bf","477985700,412751690");
+        FleetResponse result = Shipxy.DeleteFleetShip(key,"0372ec4c-eead-49ce-b005-6ffa731cc1df","477985706");
         System.out.println(result);
     }
 

@@ -455,9 +455,11 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject AddFleet(AddFleetParams params) {
+    public static FleetResponse AddFleet(AddFleetParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return postMethodJson("AddFleet", paramMap);
+
+        String resultStr = postMethod("AddFleet", paramMap);
+        return new Gson().fromJson(resultStr, FleetResponse.class);
     }
 
     /**
@@ -467,9 +469,11 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject UpdateFleet(UpdateFleetParams params) {
+    public static FleetResponse UpdateFleet(UpdateFleetParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return postMethodJson("UpdateFleet", paramMap);
+
+        String resultStr = postMethod("UpdateFleet", paramMap);
+        return new Gson().fromJson(resultStr, FleetResponse.class);
     }
 
     /**
@@ -480,11 +484,12 @@ public class Shipxy {
      * @param fleet_id 船队id：必填，船队的ID，用来对船队信息进行维护的唯一标识。
      * @return
      */
-    public static JSONObject GetFleet(String key, String fleet_id) {
+    public static FleetResponse GetFleet(String key, String fleet_id) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("fleet_id", fleet_id);
-        return getMethodJson("GetFleet", paramMap);
+        String resultStr = getMethod("GetFleet", paramMap);
+        return new Gson().fromJson(resultStr, FleetResponse.class);
     }
 
     /**
@@ -495,11 +500,13 @@ public class Shipxy {
      * @param fleet_id 船队id：必填，船队的ID，用来对船队信息进行维护的唯一标识。
      * @return
      */
-    public static JSONObject DeleteFleet(String key, String fleet_id) {
+    public static BaseResponse DeleteFleet(String key, String fleet_id) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("fleet_id", fleet_id);
-        return postMethodJson("DeleteFleet", paramMap);
+
+        String resultStr = postMethod("DeleteFleet", paramMap);
+        return new Gson().fromJson(resultStr, BaseResponse.class);
     }
 
     /**
@@ -511,12 +518,13 @@ public class Shipxy {
      * @param mmsis    船舶清单：必填，添加船队管理的船舶，mmsi编号，以英文逗号隔开。增量更新，不变动原有船队船舶，输入的mmsi编号与原有重复时，新填入的不会增加到船队中。
      * @return
      */
-    public static JSONObject AddFleetShip(String key, String fleet_id, String mmsis) {
+    public static FleetResponse AddFleetShip(String key, String fleet_id, String mmsis) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("fleet_id", fleet_id);
         paramMap.put("mmsis", mmsis);
-        return postMethodJson("AddFleetShip", paramMap);
+        String resultStr = postMethod("AddFleetShip", paramMap);
+        return new Gson().fromJson(resultStr, FleetResponse.class);
     }
 
     /**
@@ -528,12 +536,13 @@ public class Shipxy {
      * @param mmsis    船舶清单：必填，添加船队管理的船舶，mmsi编号，以英文逗号隔开。增量更新，不变动原有船队船舶，输入的mmsi编号与原有重复时，新填入的不会增加到船队中。
      * @return
      */
-    public static JSONObject UpdateFleetShip(String key, String fleet_id, String mmsis) {
+    public static FleetResponse UpdateFleetShip(String key, String fleet_id, String mmsis) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("fleet_id", fleet_id);
         paramMap.put("mmsis", mmsis);
-        return postMethodJson("UpdateFleetShip", paramMap);
+        String resultStr = postMethod("UpdateFleetShip", paramMap);
+        return new Gson().fromJson(resultStr, FleetResponse.class);
     }
 
     /**
@@ -545,12 +554,14 @@ public class Shipxy {
      * @param mmsis    船舶清单：必填，添加船队管理的船舶，mmsi编号，以英文逗号隔开。删除船队管理的某一只或一批船舶，只删除现有船队中已有的船舶信息，船队中没有的船舶编号输入后，不会影响其他船舶。
      * @return
      */
-    public static JSONObject DeleteFleetShip(String key, String fleet_id, String mmsis) {
+    public static FleetResponse DeleteFleetShip(String key, String fleet_id, String mmsis) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("fleet_id", fleet_id);
         paramMap.put("mmsis", mmsis);
-        return postMethodJson("DeleteFleetShip", paramMap);
+
+        String resultStr = postMethod("DeleteFleetShip", paramMap);
+        return new Gson().fromJson(resultStr, FleetResponse.class);
     }
 
     /**
