@@ -204,9 +204,10 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject GetAnchorShips(PortParams params) {
+    public static GetAnchorShipsResponse GetAnchorShips(PortParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethodJson("GetAnchorShips", paramMap);
+        String resultStr = getMethod("GetAnchorShips", paramMap);
+        return new Gson().fromJson(resultStr, GetAnchorShipsResponse.class);
     }
 
     /**
