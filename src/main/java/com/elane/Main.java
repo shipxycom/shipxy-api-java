@@ -27,7 +27,7 @@ public class Main {
 
 //        GetETAShipsFn();
 //        GetShipTrackFn();
-        SearchshipApproachFn();
+//        SearchshipApproachFn();
 
 //        GetPortofCallByShipFn();
 //        GetPortofCallByShipPortFn();
@@ -112,7 +112,7 @@ public class Main {
         params.setRegion("121.289063,35.424868-122.783203,35.281501-122.167969,33.979809");
         AreaShipResponse result = Shipxy.GetAreaShip(params);
         System.out.println(result);
-        System.out.println(result.getData().getShip_list().get(0).getMmsi());
+        System.out.println(result.getData().getShipList().get(0).getMmsi());
     }
 
     public static void GetShipRegistryFn() {
@@ -125,7 +125,7 @@ public class Main {
         SearchShipParticularResponse result = Shipxy.SearchShipParticular(key, 477172700);
         System.out.println(result);
         System.out.println(result.getData().get(0).getMmsi());
-        System.out.println(result.getData().get(0).getMain_engine_list().get(0).getDesigner());
+        System.out.println(result.getData().get(0).getMainEngineList().get(0).getDesigner());
     }
 
     public static void SearchPortFn() {
@@ -134,7 +134,7 @@ public class Main {
         params.setKeywords("CNS");
         SearchPortResponse result = Shipxy.SearchPort(params);
         System.out.println(result);
-        System.out.println(result.getData().get(0).getPort_code());
+        System.out.println(result.getData().get(0).getPortCode());
     }
 
     public static void GetBerthShipsFn() {
@@ -188,7 +188,7 @@ public class Main {
         params.setEnd_time(1747044218);
         SearchShipApproachResponse result = Shipxy.SearchshipApproach(params);
         System.out.println(result);
-        System.out.println(result.getData().getApproach_data().get(0).getApproachShip().getShipName());
+        System.out.println(result.getData().getApproachData().get(0).getApproachShip().getShipName());
     }
 
     public static void GetPortofCallByShipFn() {
@@ -199,7 +199,7 @@ public class Main {
         params.setEnd_time(1751440378);
         GetPortOfCallByShipResponse result = Shipxy.GetPortofCallByShip(params);
         System.out.println(result);
-        System.out.println(result.getData().get(0).getShip_name());
+        System.out.println(result.getData().get(0).getShipName());
     }
 
     public static void GetPortofCallByShipPortFn() {
@@ -211,7 +211,7 @@ public class Main {
         params.setEnd_time(1751440378);
         GetPortOfCallByShipPortResponse result = Shipxy.GetPortofCallByShipPort(params);
         System.out.println(result);
-        System.out.println(result.getData().get(0).getShip_name());
+        System.out.println(result.getData().get(0).getShipName());
     }
 
     public static void GetShipStatusFn() {
