@@ -11,7 +11,7 @@
 <dependency>
     <groupId>io.github.shipxycom</groupId>
     <artifactId>shipxy-api</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 ```
