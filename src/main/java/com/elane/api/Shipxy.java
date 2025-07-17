@@ -412,10 +412,12 @@ public class Shipxy {
      * @param key key 授权码：必填，船讯网授权码，验证服务权限
      * @return
      */
-    public static JSONObject GetTides(String key) {
+    public static GetTidesResponse GetTides(String key) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
-        return getMethodJson("GetTides", paramMap);
+
+        String resultStr = getMethod("GetTides", paramMap);
+        return new Gson().fromJson(resultStr, GetTidesResponse.class);
     }
 
     /**
@@ -425,9 +427,11 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject GetTideData(GetTideDataParams params) {
+    public static GetTideDataResponse GetTideData(GetTideDataParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethodJson("GetTideData", paramMap);
+
+        String resultStr = getMethod("GetTideData", paramMap);
+        return new Gson().fromJson(resultStr, GetTideDataResponse.class);
     }
 
     /**

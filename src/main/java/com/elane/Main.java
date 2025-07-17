@@ -42,8 +42,8 @@ public class Main {
 //        GetWeatherFn();
 //        GetAllTyphoonFn();
 //        GetSingleTyphoonFn();
-        GetTidesFn();
-//        GetTideDataFn();
+//        GetTidesFn();
+        GetTideDataFn();
 
 //        GetNavWarningFn();
 
@@ -292,8 +292,9 @@ public class Main {
     }
 
     public static void GetTidesFn() {
-        JSONObject result = Shipxy.GetTides(key);
+        GetTidesResponse result = Shipxy.GetTides(key);
         System.out.println(result);
+        System.out.println(result.getData().get(0).getPortCnname());
     }
 
     public static void GetTideDataFn() {
@@ -302,8 +303,10 @@ public class Main {
         params.setPort_code("8000005");
         params.setStart_date("2025-03-01");
         params.setEnd_date("2025-03-05");
-        JSONObject result = Shipxy.GetTideData(params);
+        GetTideDataResponse result = Shipxy.GetTideData(params);
         System.out.println(result);
+        System.out.println(result.getData().getOverview().get(0).getTideHeight2());
+        System.out.println(result.getData().getDetail().get(0).getH4());
     }
 
     public static void GetNavWarningFn() {

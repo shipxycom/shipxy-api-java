@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ae0399c-e52c-4260-a3a7-4b319c5ecf18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/GetAllTyphoonResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/GetSingleTyphoonResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/TyphoonDetailItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/TyphoonListItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/GetTideDataData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/GetTideDataResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/GetTidesResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/TideDetailItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/TideOverviewItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/TideStationInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/api/Shipxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/api/Shipxy.java" afterDir="false" />
