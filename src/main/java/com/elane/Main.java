@@ -43,9 +43,9 @@ public class Main {
 //        GetAllTyphoonFn();
 //        GetSingleTyphoonFn();
 //        GetTidesFn();
-        GetTideDataFn();
+//        GetTideDataFn();
 
-//        GetNavWarningFn();
+        GetNavWarningFn();
 
 //        AddFleetFn();
 //        UpdateFleetFn();
@@ -315,8 +315,9 @@ public class Main {
         params.setStart_time("2024-07-21 20:00");
         params.setEnd_time("2024-09-21 20:00");
         params.setWarning_type(1);
-        JSONObject result = Shipxy.GetNavWarning(params);
-        System.out.println(result);
+        GetNavWarningResponse result = Shipxy.GetNavWarning(params);
+//        System.out.println(result);
+        System.out.println(result.getData().get(0).getTitle());
     }
 
     public static void AddFleetFn() {

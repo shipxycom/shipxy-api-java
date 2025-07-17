@@ -441,9 +441,11 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject GetNavWarning(GetNavWarningParams params) {
+    public static GetNavWarningResponse GetNavWarning(GetNavWarningParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethodJson("GetNavWarning", paramMap);
+
+        String resultStr = getMethod("GetNavWarning", paramMap);
+        return new Gson().fromJson(resultStr, GetNavWarningResponse.class);
     }
 
     /**
