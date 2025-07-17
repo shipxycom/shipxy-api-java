@@ -23,7 +23,7 @@ public class Main {
 
 //        SearchPortFn();
 //        GetBerthShipsFn();
-//        GetAnchorShipsFn();
+        GetAnchorShipsFn();
 
 //        GetETAShipsFn();
 //        GetShipTrackFn();
