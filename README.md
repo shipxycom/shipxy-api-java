@@ -15,14 +15,14 @@
 </dependency>
 ```
 ```
-import cn.hutool.json.JSONObject;
+import com.elane.result.*;
 import com.elane.api.Shipxy;
 
 public class Main {
     private static String key = "请从 API控制台 申请";
 
     public static void main(String[] args) {
-        JSONObject result = Shipxy.GetManyShip(key, "413961925,477232800,477172700");
+        ManyShipResponse result = Shipxy.GetManyShip(key, "413961925,477232800,477172700");
         System.out.println(result);
     }
 }
