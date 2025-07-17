@@ -39,10 +39,10 @@ public class Main {
 //        GetSingleETAPreciseFn();
 
 //        GetWeatherByPointFn();
-        GetWeatherFn();
+//        GetWeatherFn();
 //        GetAllTyphoonFn();
 //        GetSingleTyphoonFn();
-//        GetTidesFn();
+        GetTidesFn();
 //        GetTideDataFn();
 
 //        GetNavWarningFn();
@@ -276,17 +276,19 @@ public class Main {
     public static void GetWeatherFn() {
         GetWeatherResponse result = Shipxy.GetWeather(key, 1);
         System.out.println(result);
-        System.out.println(result.getData().get(0).getCenterLat());
+        System.out.println(result.getData().get(0).getSeaArea());
     }
 
     public static void GetAllTyphoonFn() {
-        JSONObject result = Shipxy.GetAllTyphoon(key);
+        GetAllTyphoonResponse result = Shipxy.GetAllTyphoon(key);
         System.out.println(result);
+        System.out.println(result.getData().get(0).getTyphoonCnname());
     }
 
     public static void GetSingleTyphoonFn() {
-        JSONObject result = Shipxy.GetSingleTyphoon(key, 2477927);
+        GetSingleTyphoonResponse result = Shipxy.GetSingleTyphoon(key, 2477927);
         System.out.println(result);
+        System.out.println(result.getData().get(0).getTyphoonTime());
     }
 
     public static void GetTidesFn() {

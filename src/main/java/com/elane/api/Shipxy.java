@@ -380,10 +380,12 @@ public class Shipxy {
      * @param key key 授权码：必填，船讯网授权码，验证服务权限
      * @return
      */
-    public static JSONObject GetAllTyphoon(String key) {
+    public static GetAllTyphoonResponse GetAllTyphoon(String key) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
-        return getMethodJson("GetAllTyphoon", paramMap);
+
+        String resultStr = getMethod("GetAllTyphoon", paramMap);
+        return new Gson().fromJson(resultStr, GetAllTyphoonResponse.class);
     }
 
     /**
@@ -394,11 +396,13 @@ public class Shipxy {
      * @param typhoon_id 台风序号：必填，通过查询台风列表获得
      * @return
      */
-    public static JSONObject GetSingleTyphoon(String key, Integer typhoon_id) {
+    public static GetSingleTyphoonResponse GetSingleTyphoon(String key, Integer typhoon_id) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("typhoon_id", typhoon_id);
-        return getMethodJson("GetSingleTyphoon", paramMap);
+
+        String resultStr = getMethod("GetSingleTyphoon", paramMap);
+        return new Gson().fromJson(resultStr, GetSingleTyphoonResponse.class);
     }
 
     /**
