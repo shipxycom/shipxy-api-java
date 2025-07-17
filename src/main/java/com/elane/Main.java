@@ -29,9 +29,9 @@ public class Main {
 //        GetShipTrackFn();
 //        SearchshipApproachFn();
 
-        GetPortofCallByShipFn();
+//        GetPortofCallByShipFn();
 //        GetPortofCallByShipPortFn();
-//        GetShipStatusFn();
+        GetShipStatusFn();
 //        GetPortofCallByPortFn();
 
 //        PlanRouteByPointFn();
@@ -187,6 +187,7 @@ public class Main {
         params.setEnd_time(1747044218);
         SearchShipApproachResponse result = Shipxy.SearchshipApproach(params);
         System.out.println(result);
+        System.out.println(result.getData().getApproach_data().get(0).getApproach_ship().getShip_name());
     }
 
     public static void GetPortofCallByShipFn() {
@@ -195,8 +196,9 @@ public class Main {
         params.setMmsi(477172700);
         params.setStart_time(1751007589);
         params.setEnd_time(1751440378);
-        JSONObject result = Shipxy.GetPortofCallByShip(params);
+        GetPortOfCallByShipResponse result = Shipxy.GetPortofCallByShip(params);
         System.out.println(result);
+        System.out.println(result.getData().get(0).getShip_name());
     }
 
     public static void GetPortofCallByShipPortFn() {
@@ -206,16 +208,18 @@ public class Main {
         params.setPort_code("CNSHG");
         params.setStart_time(1751007589);
         params.setEnd_time(1751440378);
-        JSONObject result = Shipxy.GetPortofCallByShipPort(params);
+        GetPortOfCallByShipPortResponse result = Shipxy.GetPortofCallByShipPort(params);
         System.out.println(result);
+        System.out.println(result.getData().get(0).getShip_name());
     }
 
     public static void GetShipStatusFn() {
         GetShipStatusParams params = new GetShipStatusParams();
         params.setKey(key);
         params.setMmsi(477172700);
-        JSONObject result = Shipxy.GetShipStatus(params);
+        GetShipStatusResponse result = Shipxy.GetShipStatus(params);
         System.out.println(result);
+        System.out.println(result.getData().get(0).getMmsi());
     }
 
     public static void GetPortofCallByPortFn() {

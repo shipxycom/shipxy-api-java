@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ae0399c-e52c-4260-a3a7-4b319c5ecf18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/ApproachDataItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/ApproachEventInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/ApproachShipInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/SearchShipApproachResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/ShipApproachData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/GetPortOfCallByShipPortResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/GetPortOfCallByShipResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/GetShipStatusResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/PortInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/PortOfCallByShipPortData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/PortOfCallData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/ShipStatusData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/api/Shipxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/api/Shipxy.java" afterDir="false" />
