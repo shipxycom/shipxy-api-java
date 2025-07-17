@@ -350,9 +350,11 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject GetWeatherByPoint(GetWeatherByPointParams params) {
+    public static GetWeatherByPointResponse GetWeatherByPoint(GetWeatherByPointParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethodJson("GetWeatherByPoint", paramMap);
+
+        String resultStr = getMethod("GetWeatherByPoint", paramMap);
+        return new Gson().fromJson(resultStr, GetWeatherByPointResponse.class);
     }
 
     /**
@@ -363,11 +365,12 @@ public class Shipxy {
      * @param weather_type 区域类型：必填，查询区域的类型：0：全部；1：沿岸；2：近海；3：远海。
      * @return
      */
-    public static JSONObject GetWeather(String key, Integer weather_type) {
+    public static GetWeatherResponse GetWeather(String key, Integer weather_type) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("weather_type", weather_type);
-        return getMethodJson("GetWeather", paramMap);
+        String resultStr = getMethod("GetWeather", paramMap);
+        return new Gson().fromJson(resultStr, GetWeatherResponse.class);
     }
 
     /**

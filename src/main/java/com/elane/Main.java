@@ -36,10 +36,10 @@ public class Main {
 
 //        PlanRouteByPointFn();
 //        PlanRouteByPortFn();
-        GetSingleETAPreciseFn();
+//        GetSingleETAPreciseFn();
 
 //        GetWeatherByPointFn();
-//        GetWeatherFn();
+        GetWeatherFn();
 //        GetAllTyphoonFn();
 //        GetSingleTyphoonFn();
 //        GetTidesFn();
@@ -268,13 +268,15 @@ public class Main {
         params.setKey(key);
         params.setLng(123.58414);
         params.setLat(27.37979);
-        JSONObject result = Shipxy.GetWeatherByPoint(params);
+        GetWeatherByPointResponse result = Shipxy.GetWeatherByPoint(params);
         System.out.println(result);
+        System.out.println(result.getData().getPublishTime());
     }
 
     public static void GetWeatherFn() {
-        JSONObject result = Shipxy.GetWeather(key, 1);
+        GetWeatherResponse result = Shipxy.GetWeather(key, 1);
         System.out.println(result);
+        System.out.println(result.getData().get(0).getCenterLat());
     }
 
     public static void GetAllTyphoonFn() {
