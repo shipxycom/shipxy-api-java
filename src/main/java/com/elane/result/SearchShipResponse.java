@@ -2,8 +2,10 @@ package com.elane.result;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
-public class ResultOne<T> {
+public class SearchShipResponse {
     /**
      * 状态
      */
@@ -13,7 +15,11 @@ public class ResultOne<T> {
      */
     private String msg;
     /**
+     * 总数
+     */
+    private Integer total;
+    /**
      * 数据
      */
-    private T data;
+    private List<SearchShipResult> data;
 }

@@ -2,8 +2,10 @@ package com.elane.result;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
-public class ResultOne<T> {
+public class FleetShipResponse {
     /**
      * 状态
      */
@@ -15,5 +17,5 @@ public class ResultOne<T> {
     /**
      * 数据
      */
-    private T data;
+    private List<FleetShipResult> data;
 }

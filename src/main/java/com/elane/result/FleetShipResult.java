@@ -3,7 +3,12 @@ package com.elane.result;
 import lombok.Data;
 
 @Data
-public class ShipResult {
+public class FleetShipResult {
+    /**
+     * 最后更新时间,Unix时间戳
+     */
+    private String fleet_id;
+
     /**
      * 船舶mmsi编号,船舶mmsi编号，9 位数字
      */
@@ -109,9 +114,4 @@ public class ShipResult {
      * 最后更新时间,Unix时间戳
      */
     private Integer last_time_utc;
-
-    /**
-     * 船队
-     */
-    private String fleet_id;
 }

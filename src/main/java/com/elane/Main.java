@@ -2,12 +2,8 @@ package com.elane;
 
 import cn.hutool.json.JSONObject;
 import com.elane.api.Shipxy;
-import com.elane.api.Shipxy_bak;
 import com.elane.params.*;
-import com.elane.result.ResultList;
-import com.elane.result.ResultOne;
-import com.elane.result.SearchShipResult;
-import com.elane.result.ShipResult;
+import com.elane.result.*;
 
 public class Main {
     private static String key = com.elane.api.Key.key;
@@ -16,9 +12,9 @@ public class Main {
     public static void main(String[] args) {
 //        SearchShipFn();
 //        GetSingleShipFn();
-        GetManyShipFn();
+//        GetManyShipFn();
 //        GetFleetShipFn();
-//        GetSurRoundingShipFn();
+        GetSurRoundingShipFn();
 //        GetAreaShipFn();
 //        GetShipRegistryFn();
 //        SearchShipParticularFn();
@@ -68,7 +64,7 @@ public class Main {
         params.setKey(key);
         params.setKeywords("coco");
         params.setMax(2);
-        ResultList<SearchShipResult> result = Shipxy.SearchShip(params);
+        SearchShipResponse result = Shipxy.SearchShip(params);
         System.out.println(result);
         if(result.getData()!=null){
             System.out.println(result.getData().get(0).getMmsi());
@@ -76,7 +72,7 @@ public class Main {
     }
 
     public static void GetSingleShipFn() {
-        ResultOne<ShipResult> result = Shipxy.GetSingleShip(key, 413961925);
+        SingleShipResponse result = Shipxy.GetSingleShip(key, 413961925);
         System.out.println(result);
         if(result.getData()!=null){
             System.out.println(result.getData().getMmsi());
@@ -84,7 +80,7 @@ public class Main {
     }
 
     public static void GetManyShipFn() {
-        ResultList<ShipResult> result = Shipxy.GetManyShip(key, "413961925,477232800,477172700");
+        ManyShipResponse result = Shipxy.GetManyShip(key, "413961925,477232800,477172700");
         System.out.println(result);
         if(result.getData()!=null){
             System.out.println(result.getData().get(0).getMmsi());
@@ -92,13 +88,19 @@ public class Main {
     }
 
     public static void GetFleetShipFn() {
-        JSONObject result = Shipxy.GetFleetShip(key, "72efa1dc-dc1d-45a6-9090-880835105363");
+        FleetShipResponse result = Shipxy.GetFleetShip(key, "0372ec4c-eead-49ce-b005-6ffa731cc1df");
         System.out.println(result);
+        if(result.getData()!=null){
+            System.out.println(result.getData().get(0).getMmsi());
+        }
     }
 
     public static void GetSurRoundingShipFn() {
-        JSONObject result = Shipxy.GetSurRoundingShip(key, 413961925);
+        SurRoundingShipResponse result = Shipxy.GetSurRoundingShip(key, 413961925);
         System.out.println(result);
+        if(result.getData()!=null){
+            System.out.println(result.getData().get(0).getMmsi());
+        }
     }
 
     public static void GetAreaShipFn() {

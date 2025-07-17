@@ -7,10 +7,7 @@ import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.elane.params.*;
-import com.elane.result.ResultList;
-import com.elane.result.ResultOne;
-import com.elane.result.SearchShipResult;
-import com.elane.result.ShipResult;
+import com.elane.result.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,10 +48,10 @@ public class Shipxy {
      * @param params SearchShipParams
      * @return
      */
-    public static ResultList<SearchShipResult> SearchShip(SearchParams params) {
+    public static SearchShipResponse SearchShip(SearchParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         JSONObject resultObj = postMethodJson("SearchShip", paramMap);
-        return JSONUtil.toBean(resultObj, new TypeReference<ResultList<SearchShipResult>>() {
+        return JSONUtil.toBean(resultObj, new TypeReference<SearchShipResponse>() {
         }, true);
     }
 
@@ -66,12 +63,12 @@ public class Shipxy {
      * @param mmsi 船舶mmsi编号：必填，船舶mmsi编号，9 位数字
      * @return 查看在线文档
      */
-    public static ResultOne<ShipResult> GetSingleShip(String key, Integer mmsi) {
+    public static SingleShipResponse GetSingleShip(String key, Integer mmsi) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsi", mmsi);
         String resultStr = getMethod("GetSingleShip", paramMap);
-        return JSONUtil.toBean(resultStr, new TypeReference<ResultOne<ShipResult>>() {
+        return JSONUtil.toBean(resultStr, new TypeReference<SingleShipResponse>() {
         }, true);
     }
 
@@ -83,12 +80,12 @@ public class Shipxy {
      * @param mmsis 船舶mmsi编号：必填，船舶编号，船舶mmsi编号，多船查询以英文逗号隔开，单次查询船舶数量不超过100
      * @return
      */
-    public static ResultList<ShipResult> GetManyShip(String key, String mmsis) {
+    public static ManyShipResponse GetManyShip(String key, String mmsis) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsis", mmsis);
         String resultStr = getMethod("GetManyShip", paramMap);
-        return JSONUtil.toBean(resultStr, new TypeReference<ResultList<ShipResult>>() {
+        return JSONUtil.toBean(resultStr, new TypeReference<ManyShipResponse>() {
         }, true);
     }
 
@@ -100,11 +97,14 @@ public class Shipxy {
      * @param fleet_id 船队编号：必填，控制台中维护的船队id，查询船队下所有船舶数据。
      * @return
      */
-    public static JSONObject GetFleetShip(String key, String fleet_id) {
+    public static FleetShipResponse GetFleetShip(String key, String fleet_id) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("fleet_id", fleet_id);
-        return getMethodJson("GetFleetShip", paramMap);
+
+        String resultStr = getMethod("GetFleetShip", paramMap);
+        return JSONUtil.toBean(resultStr, new TypeReference<FleetShipResponse>() {
+        }, true);
     }
 
     /**
@@ -115,11 +115,14 @@ public class Shipxy {
      * @param mmsi 船舶mmsi编号：必填，船舶mmsi编号，9 位数字
      * @return
      */
-    public static JSONObject GetSurRoundingShip(String key, Integer mmsi) {
+    public static SurRoundingShipResponse GetSurRoundingShip(String key, Integer mmsi) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsi", mmsi);
-        return getMethodJson("GetSurRoundingShip", paramMap);
+        String resultStr = getMethod("GetSurRoundingShip", paramMap);
+        return JSONUtil.toBean(resultStr, new TypeReference<SurRoundingShipResponse>() {
+        }, true);
+
     }
 
     /**
