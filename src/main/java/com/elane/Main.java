@@ -14,8 +14,8 @@ public class Main {
 //        GetSingleShipFn();
 //        GetManyShipFn();
 //        GetFleetShipFn();
-        GetSurRoundingShipFn();
-//        GetAreaShipFn();
+//        GetSurRoundingShipFn();
+        GetAreaShipFn();
 //        GetShipRegistryFn();
 //        SearchShipParticularFn();
 
@@ -107,8 +107,9 @@ public class Main {
         GetAreaShipParams params = new GetAreaShipParams();
         params.setKey(key);
         params.setRegion("121.289063,35.424868-122.783203,35.281501-122.167969,33.979809");
-        JSONObject result = Shipxy.GetAreaShip(params);
+        AreaShipResponse result = Shipxy.GetAreaShip(params);
         System.out.println(result);
+        System.out.println(result.getData().getShip_list().get(0).getMmsi());
     }
 
     public static void GetShipRegistryFn() {

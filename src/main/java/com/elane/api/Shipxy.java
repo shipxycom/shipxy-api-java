@@ -8,6 +8,7 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.elane.params.*;
 import com.elane.result.*;
+import com.google.gson.Gson;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -132,9 +133,10 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject GetAreaShip(GetAreaShipParams params) {
+    public static AreaShipResponse GetAreaShip(GetAreaShipParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return postMethodJson("GetAreaShip", paramMap);
+        String resultStr = getMethod("GetAreaShip", paramMap);
+        return new Gson().fromJson(resultStr, AreaShipResponse.class);
     }
 
     /**
