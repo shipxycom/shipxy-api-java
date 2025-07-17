@@ -26,10 +26,10 @@ public class Main {
 //        GetAnchorShipsFn();
 
 //        GetETAShipsFn();
-        GetShipTrackFn();
+//        GetShipTrackFn();
 //        SearchshipApproachFn();
 
-//        GetPortofCallByShipFn();
+        GetPortofCallByShipFn();
 //        GetPortofCallByShipPortFn();
 //        GetShipStatusFn();
 //        GetPortofCallByPortFn();
@@ -185,7 +185,7 @@ public class Main {
         params.setMmsi(477172700);
         params.setStart_time(1746612218);
         params.setEnd_time(1747044218);
-        JSONObject result = Shipxy.SearchshipApproach(params);
+        SearchShipApproachResponse result = Shipxy.SearchshipApproach(params);
         System.out.println(result);
     }
 

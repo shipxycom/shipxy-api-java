@@ -245,9 +245,10 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject SearchshipApproach(SearchshipApproachParams params) {
+    public static SearchShipApproachResponse SearchshipApproach(SearchshipApproachParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethodJson("SearchshipApproach", paramMap);
+        String resultStr = getMethod("SearchshipApproach", paramMap);
+        return new Gson().fromJson(resultStr, SearchShipApproachResponse.class);
     }
 
     /**
