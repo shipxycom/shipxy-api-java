@@ -1,5 +1,6 @@
 package com.elane.result;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 @Data
@@ -18,17 +19,20 @@ public class BerthShipData {
     /**
      * 船舶呼号
      */
-    private String call_sign;
+    @SerializedName("call_sign")
+    private String callSign;
 
     /**
      * 船舶英文名称
      */
-    private String ship_name;
+    @SerializedName("ship_name")
+    private String shipName;
 
     /**
      * 船舶类型
      */
-    private Integer ship_type;
+    @SerializedName("ship_type")
+    private Integer shipType;
 
     /**
      * 船舶长度，米，取值范围(0-1022)
@@ -58,17 +62,20 @@ public class BerthShipData {
     /**
      * 到达时间，北京时间，格式如：2025-03-03 10:51:40
      */
-    private String arrival_time;
+    @SerializedName("arrival_time")
+    private String arrivalTime;
 
     /**
      * 到达时间，Unix时间戳，UTC时间
      */
-    private Integer arrival_time_utc;
+    @SerializedName("arrival_time_utc")
+    private Integer arrivalTimeUtc;
 
     /**
      * 船舶当前在港口持续停留的时间，单位分钟
      */
-    private Float stay_time;
+    @SerializedName("stay_time")
+    private Float stayTime;
 
     /**
      * 航行状态

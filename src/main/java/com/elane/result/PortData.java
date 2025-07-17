@@ -1,39 +1,43 @@
 package com.elane.result;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 @Data
 public class PortData {
     /**
-     * 港口标准code
      * 港口标准五位码
      */
-    private String port_code;
+    @SerializedName("port_code")
+    private String portCode;
 
     /**
      * 港口英文名称
      */
-    private String port_name;
+    @SerializedName("port_name")
+    private String portName;
 
     /**
      * 港口中文名称
      */
-    private String port_cnname;
+    @SerializedName("port_cnname")
+    private String portCnName;
 
     /**
-     * 港口时区
      * 港口所在时区
      */
-    private String port_time_zone;
+    @SerializedName("port_time_zone")
+    private String portTimeZone;
 
     /**
      * 港口所属国家英文名
      */
-    private String port_country_name;
+    @SerializedName("port_country_name")
+    private String portCountryName;
 
     /**
      * 港口所属国家中文名
      */
-    private String port_country_cnname;
-
+    @SerializedName("port_country_cnname")
+    private String portCountryCnName;
 }

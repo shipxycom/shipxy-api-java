@@ -11,5 +11,6 @@ public class AreaShipData {
     private Integer scode;
     @SerializedName("continue")
     private Integer continue_;
-    private List<ShipPosition> ship_list;
+    @SerializedName("ship_list")
+    private List<ShipPosition> shipList;
 }

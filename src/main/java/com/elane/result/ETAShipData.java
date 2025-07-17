@@ -1,23 +1,46 @@
 package com.elane.result;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 @Data
 public class ETAShipData {
     private Integer mmsi;
-    private String ship_name;
+
+    @SerializedName("ship_name")
+    private String shipName;
+
     private Integer imo;
+
     private Float dwt;
-    private String ship_type;
+
+    @SerializedName("ship_type")
+    private String shipType;
+
     private Float length;
+
     private Float width;
+
     private Float draught;
-    private String preport_cnname;
-    private String last_time;
-    private Integer last_time_utc;
+
+    @SerializedName("preport_cnname")
+    private String pReportCnName;
+
+    @SerializedName("last_time")
+    private String lastTime;
+
+    @SerializedName("last_time_utc")
+    private Integer lastTimeUtc;
+
     private String eta;
-    private Integer eta_utc;
+
+    @SerializedName("eta_utc")
+    private Integer etaUtc;
+
     private String dest;
-    private String ship_flag;
+
+    @SerializedName("ship_flag")
+    private String shipFlag;
+
     private String registry;
 }

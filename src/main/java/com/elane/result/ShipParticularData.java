@@ -1,11 +1,13 @@
 package com.elane.result;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
 public class ShipParticularData {
+
     /** 船舶mmsi编号，9 位数字 */
     private Long mmsi;
 
@@ -13,52 +15,67 @@ public class ShipParticularData {
     private Long imo;
 
     /** 船舶呼号 */
-    private String call_sign;
+    @SerializedName("call_sign")
+    private String callSign;
 
     /** 船舶英文名称 */
-    private String ship_name;
+    @SerializedName("ship_name")
+    private String shipName;
 
     /** 船舶长度，米，取值范围(0-1022) */
     private Float length;
 
     /** 船舶型宽，米，取值范围（0-1022） */
-    private Float mould_width;
+    @SerializedName("mould_width")
+    private Float mouldWidth;
 
     /** 船旗国国家代码 */
-    private String flag_country_code;
+    @SerializedName("flag_country_code")
+    private String flagCountryCode;
 
     /** 船旗国英文名称 */
-    private String flag_country;
+    @SerializedName("flag_country")
+    private String flagCountry;
 
     /** 船舶建造国家英文名称 */
-    private String build_country;
+    @SerializedName("build_country")
+    private String buildCountry;
 
     /** 船舶建造日期（格式：yyyyMM 或 yyyy，如 201601） */
-    private String build_date;
+    @SerializedName("build_date")
+    private String buildDate;
 
     /** 船级社名称 */
-    private String class_name;
+    @SerializedName("class_name")
+    private String className;
 
     /** 船东互保协会名称 */
-    private String pandi_club;
+    @SerializedName("pandi_club")
+    private String pandiClub;
 
     /** 船舶类型 */
-    private String ship_type;
+    @SerializedName("ship_type")
+    private String shipType;
 
     /** 船舶类型子分类 */
-    private String ship_type_level5_subgroup;
+    @SerializedName("ship_type_level5_subgroup")
+    private String shipTypeLevel5Subgroup;
 
     /** 船舶类型分组 */
-    private String ship_type_group;
+    @SerializedName("ship_type_group")
+    private String shipTypeGroup;
 
     /** 船舶状态 */
-    private String ship_status;
+    @SerializedName("ship_status")
+    private String shipStatus;
 
     /** 船舶总吨数 */
-    private Float gross_tonnage;
+    @SerializedName("gross_tonnage")
+    private Float grossTonnage;
 
     /** 净注册吨数 */
-    private Float net_tonnage;
+    @SerializedName("net_tonnage")
+    private Float netTonnage;
 
     /** 载重，吨 */
     private Float deadweight;
@@ -67,107 +84,141 @@ public class ShipParticularData {
     private Integer teu;
 
     /** 最大速度，单位：节 */
-    private Float speed_max;
+    @SerializedName("speed_max")
+    private Float speedMax;
 
     /** 经济航速，单位：节 */
-    private Float speed_service;
+    @SerializedName("speed_service")
+    private Float speedService;
 
     /** 船舶吃水，单位：米 */
     private Float draught;
 
     /** 船籍港 */
-    private String port_of_registry;
+    @SerializedName("port_of_registry")
+    private String portOfRegistry;
 
     /** 集团所有方代码 */
-    private String group_code;
+    @SerializedName("group_code")
+    private String groupCode;
 
     /** 集团所有方名称 */
-    private String group_company;
+    @SerializedName("group_company")
+    private String groupCompany;
 
     /** 集团所有方所属国家代码 */
-    private String group_country_code;
+    @SerializedName("group_country_code")
+    private String groupCountryCode;
 
     /** 集团所有方所属国家 */
-    private String group_country;
+    @SerializedName("group_country")
+    private String groupCountry;
 
     /** 船舶管理者代码 */
-    private String shipmanager_code;
+    @SerializedName("shipmanager_code")
+    private String shipmanagerCode;
 
     /** 船舶管理者名称 */
-    private String shipmanager_company;
+    @SerializedName("shipmanager_company")
+    private String shipmanagerCompany;
 
     /** 船舶管理者所属国家代码 */
-    private String shipmanager_country_code;
+    @SerializedName("shipmanager_country_code")
+    private String shipmanagerCountryCode;
 
     /** 船舶管理者所属国家 */
-    private String shipmanager_country;
+    @SerializedName("shipmanager_country")
+    private String shipmanagerCountry;
 
     /** 船舶经营者代码 */
-    private String operator_code;
+    @SerializedName("operator_code")
+    private String operatorCode;
 
     /** 船舶经营者名称 */
-    private String operator_company;
+    @SerializedName("operator_company")
+    private String operatorCompany;
 
     /** 船舶经营者所属国家代码 */
-    private String operator_country_code;
+    @SerializedName("operator_country_code")
+    private String operatorCountryCode;
 
     /** 船舶经营者所属国家 */
-    private String operator_country;
+    @SerializedName("operator_country")
+    private String operatorCountry;
 
     /** DOC 公司代码 */
-    private String doc_code;
+    @SerializedName("doc_code")
+    private String docCode;
 
     /** DOC 公司名称 */
-    private String doc_company;
+    @SerializedName("doc_company")
+    private String docCompany;
 
     /** DOC 公司所属国家代码 */
-    private String doc_country_code;
+    @SerializedName("doc_country_code")
+    private String docCountryCode;
 
     /** DOC 公司所属国家 */
-    private String doc_country;
+    @SerializedName("doc_country")
+    private String docCountry;
 
     /** 注册所有方代码 */
-    private String registered_code;
+    @SerializedName("registered_code")
+    private String registeredCode;
 
     /** 注册所有方名称 */
-    private String registered_owner;
+    @SerializedName("registered_owner")
+    private String registeredOwner;
 
     /** 注册所有方所属国家代码 */
-    private String registered_country_code;
+    @SerializedName("registered_country_code")
+    private String registeredCountryCode;
 
     /** 注册所有方所属国家 */
-    private String registered_country;
+    @SerializedName("registered_country")
+    private String registeredCountry;
 
     /** 技术管理者代码 */
-    private String technical_code;
+    @SerializedName("technical_code")
+    private String technicalCode;
 
     /** 技术管理者名称 */
-    private String technical_manager;
+    @SerializedName("technical_manager")
+    private String technicalManager;
 
     /** 技术管理者所属国家代码 */
-    private String technical_country_code;
+    @SerializedName("technical_country_code")
+    private String technicalCountryCode;
 
     /** 技术管理者所属国家 */
-    private String technical_country;
+    @SerializedName("technical_country")
+    private String technicalCountry;
 
     /** 船舶建造者代码 */
-    private String builder_code;
+    @SerializedName("builder_code")
+    private String builderCode;
 
     /** 船舶建造者名称 */
-    private String builder_company;
+    @SerializedName("builder_company")
+    private String builderCompany;
 
     /** 船舶建造者所属国家代码 */
-    private String builder_country_code;
+    @SerializedName("builder_country_code")
+    private String builderCountryCode;
 
     /** 船舶建造者所属国家 */
-    private String builder_country;
+    @SerializedName("builder_country")
+    private String builderCountry;
 
     /** 主机信息列表 */
-    private List<EngineInfo> main_engine_list;
+    @SerializedName("main_engine_list")
+    private List<EngineInfo> mainEngineList;
 
     /** 辅机信息列表 */
-    private List<EngineInfo> aux_engine_list;
+    @SerializedName("aux_engine_list")
+    private List<EngineInfo> auxEngineList;
 
     /** 档案数据更新时间，格式：2016-01-01 12:12:30 */
-    private String update_time;
+    @SerializedName("update_time")
+    private String updateTime;
 }

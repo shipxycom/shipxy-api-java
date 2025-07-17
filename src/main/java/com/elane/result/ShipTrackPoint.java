@@ -1,19 +1,22 @@
 package com.elane.result;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 @Data
 public class ShipTrackPoint {
+
     /**
      * 数据来源
      * 0代表岸基或船基AIS基站，1代表卫星基站
      */
-    private Byte data_source;
+    @SerializedName("data_source")
+    private Byte dataSource;
 
     /**
      * 点位更新时间，Unix时间戳
      */
-    private Integer utc;
+    private Long utc;
 
     /**
      * 纬度，WGS84坐标系
