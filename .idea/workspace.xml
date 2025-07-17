@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ae0399c-e52c-4260-a3a7-4b319c5ecf18" name="Changes" comment="" />
+    <list default="true" id="3ae0399c-e52c-4260-a3a7-4b319c5ecf18" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/api/Shipxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/api/Shipxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/api/Shipxy_bak.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/api/Shipxy_bak.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/result/SearcheShipResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/SearchShipResult.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,9 +31,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": -1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: -1
+}</component>
   <component name="ProjectId" id="2ztiEpPcyhyxAFt3WSkaS4P5MMQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,6 +44,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/workspace/idea/shipxy-api-java",
     "project.structure.last.edited": "Modules",

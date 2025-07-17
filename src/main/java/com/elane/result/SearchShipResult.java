@@ -3,7 +3,7 @@ package com.elane.result;
 import lombok.Data;
 
 @Data
-public class SearcheShipResult {
+public class SearchShipResult {
     /**
      * 匹配类型，关键字匹配结果的类型，匹配类型:1：船名；2：呼号；3：mmsi；5：imo
      */
@@ -32,4 +32,6 @@ public class SearcheShipResult {
      * 最后更新时间，AIS最后更新上传的时间
      */
     private String last_time;
+
+    private Integer last_time_utc;
 }

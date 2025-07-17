@@ -2,16 +2,21 @@ package com.elane;
 
 import cn.hutool.json.JSONObject;
 import com.elane.api.Shipxy;
+import com.elane.api.Shipxy_bak;
 import com.elane.params.*;
+import com.elane.result.ResultList;
+import com.elane.result.ResultOne;
+import com.elane.result.SearchShipResult;
+import com.elane.result.ShipResult;
 
 public class Main {
-//    private static String key = com.elane.api.Key.key;
-    private static String key = "请从 API控制台 申请";
+    private static String key = com.elane.api.Key.key;
+//    private static String key = "请从 API控制台 申请";
 
     public static void main(String[] args) {
-        SearchShipFn();
+//        SearchShipFn();
 //        GetSingleShipFn();
-//        GetManyShipFn();
+        GetManyShipFn();
 //        GetFleetShipFn();
 //        GetSurRoundingShipFn();
 //        GetAreaShipFn();
@@ -61,20 +66,29 @@ public class Main {
     public static void SearchShipFn() {
         SearchParams params = new SearchParams();
         params.setKey(key);
-        params.setKeywords("cosco");
+        params.setKeywords("coco");
         params.setMax(2);
-        JSONObject result = Shipxy.SearchShip(params);
+        ResultList<SearchShipResult> result = Shipxy.SearchShip(params);
         System.out.println(result);
+        if(result.getData()!=null){
+            System.out.println(result.getData().get(0).getMmsi());
+        }
     }
 
     public static void GetSingleShipFn() {
-        JSONObject result = Shipxy.GetSingleShip(key, 413961925);
+        ResultOne<ShipResult> result = Shipxy.GetSingleShip(key, 413961925);
         System.out.println(result);
+        if(result.getData()!=null){
+            System.out.println(result.getData().getMmsi());
+        }
     }
 
     public static void GetManyShipFn() {
-        JSONObject result = Shipxy.GetManyShip(key, "413961925,477232800,477172700");
+        ResultList<ShipResult> result = Shipxy.GetManyShip(key, "413961925,477232800,477172700");
         System.out.println(result);
+        if(result.getData()!=null){
+            System.out.println(result.getData().get(0).getMmsi());
+        }
     }
 
     public static void GetFleetShipFn() {

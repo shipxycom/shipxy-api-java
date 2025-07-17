@@ -2,16 +2,20 @@ package com.elane.api;
 
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.lang.TypeReference;
 import cn.hutool.http.HttpUtil;
+import cn.hutool.json.JSONArray;
+import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.elane.params.GetAreaShipParams;
 import com.elane.params.SearchParams;
 import com.elane.result.ResultList;
 import com.elane.result.ResultOne;
-import com.elane.result.SearcheShipResult;
+import com.elane.result.SearchShipResult;
 import com.elane.result.ShipResult;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,11 +40,10 @@ public class Shipxy_bak {
      * @param params SearchShipParams
      * @return
      */
-    public static ResultList<SearcheShipResult> SearchShip(SearchParams params) {
+    public static ResultList<SearchShipResult> SearchShip(SearchParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = postMethod("SearchShip", paramMap);
-        ResultList<SearcheShipResult> resultObj = JSONUtil.toBean(resultStr, ResultList.class);
-        return resultObj;
+        return JSONUtil.toBean(resultStr, new TypeReference<ResultList<SearchShipResult>>() {}, true);
     }
 
     /**

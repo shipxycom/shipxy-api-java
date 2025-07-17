@@ -2,10 +2,15 @@ package com.elane.api;
 
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.lang.TypeReference;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.elane.params.*;
+import com.elane.result.ResultList;
+import com.elane.result.ResultOne;
+import com.elane.result.SearchShipResult;
+import com.elane.result.ShipResult;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,11 +23,15 @@ public class Shipxy {
     private static String apiUrl = "https://api.shipxy.com/apicall/v3";
 
     public static String getMethod(String methodName, Map<String, Object> paramMap) {
-        return HttpUtil.get(apiUrl + "/" + methodName, paramMap);
+        String resultStr = HttpUtil.get(apiUrl + "/" + methodName, paramMap);
+        System.out.println(resultStr);
+        return resultStr;
     }
 
     public static String postMethod(String methodName, Map<String, Object> paramMap) {
-        return HttpUtil.post(apiUrl + "/" + methodName, paramMap);
+        String resultStr = HttpUtil.post(apiUrl + "/" + methodName, paramMap);
+        System.out.println(resultStr);
+        return resultStr;
     }
 
     public static JSONObject getMethodJson(String methodName, Map<String, Object> paramMap) {
@@ -42,9 +51,11 @@ public class Shipxy {
      * @param params SearchShipParams
      * @return
      */
-    public static JSONObject SearchShip(SearchParams params) {
+    public static ResultList<SearchShipResult> SearchShip(SearchParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return postMethodJson("SearchShip", paramMap);
+        JSONObject resultObj = postMethodJson("SearchShip", paramMap);
+        return JSONUtil.toBean(resultObj, new TypeReference<ResultList<SearchShipResult>>() {
+        }, true);
     }
 
     /**
@@ -55,11 +66,13 @@ public class Shipxy {
      * @param mmsi 船舶mmsi编号：必填，船舶mmsi编号，9 位数字
      * @return 查看在线文档
      */
-    public static JSONObject GetSingleShip(String key, Integer mmsi) {
+    public static ResultOne<ShipResult> GetSingleShip(String key, Integer mmsi) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsi", mmsi);
-        return getMethodJson("GetSingleShip", paramMap);
+        String resultStr = getMethod("GetSingleShip", paramMap);
+        return JSONUtil.toBean(resultStr, new TypeReference<ResultOne<ShipResult>>() {
+        }, true);
     }
 
     /**
@@ -70,11 +83,13 @@ public class Shipxy {
      * @param mmsis 船舶mmsi编号：必填，船舶编号，船舶mmsi编号，多船查询以英文逗号隔开，单次查询船舶数量不超过100
      * @return
      */
-    public static JSONObject GetManyShip(String key, String mmsis) {
+    public static ResultList<ShipResult> GetManyShip(String key, String mmsis) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsis", mmsis);
-        return getMethodJson("GetManyShip", paramMap);
+        String resultStr = getMethod("GetManyShip", paramMap);
+        return JSONUtil.toBean(resultStr, new TypeReference<ResultList<ShipResult>>() {
+        }, true);
     }
 
     /**
@@ -110,6 +125,7 @@ public class Shipxy {
     /**
      * 1船舶查询-1.4区域船舶查询
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/ZlcrwKpgqik1L3kvbIMcBJUCn1U">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -121,7 +137,8 @@ public class Shipxy {
     /**
      * 1船舶查询-1.5船舶船籍查询
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/Ko5gw1o0ZiMQankWEAscSMoin7g">在线文档</a></p>
-     * @param key 授权码：必填，船讯网授权码，验证服务权限
+     *
+     * @param key  授权码：必填，船讯网授权码，验证服务权限
      * @param mmsi 船舶mmsi编号：必填，船舶mmsi编号
      * @return
      */
@@ -135,6 +152,7 @@ public class Shipxy {
     /**
      * 1船舶查询-1.6船舶档案查询
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/Vvd2wHECliYz6okSoYucTRXvnsd">在线文档</a></p>
+     *
      * @param key
      * @param mmsi
      * @return
@@ -149,6 +167,7 @@ public class Shipxy {
     /**
      * 2港口查询-2.1港口信息查询
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/DAlUwEn9Zi50gckSv0uc1qsIn6f">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -160,6 +179,7 @@ public class Shipxy {
     /**
      * 2港口查询-2.2港口当前靠泊船查询
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/KdBNwIxOhijpALkCkNXc69MKn3g">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -171,6 +191,7 @@ public class Shipxy {
     /**
      * 2港口查询-2.3港口当前到锚船舶查询
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/WTHnwa66niA4VhkmNVXchRRSnYe">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -182,6 +203,7 @@ public class Shipxy {
     /**
      * 2港口查询-2.4港口预抵船舶查询
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/Poe3wdXkwiwzMUkATcJcigeBnJh">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -193,6 +215,7 @@ public class Shipxy {
     /**
      * 3历史行为-3.1船舶历史轨迹查询
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/RK2Uwh7tziQ7SnkzlDgcUk8Nnkc">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -204,6 +227,7 @@ public class Shipxy {
     /**
      * 3历史行为-3.2船舶搭靠记录查询
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/GYrTwxfzRiQdDxkJYOWcF3kKnnf">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -215,6 +239,7 @@ public class Shipxy {
     /**
      * 4挂靠记录-4.1船舶历史挂靠记录
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/Sv5rw61KVioV0ekq4ytcBpGgnGd">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -226,6 +251,7 @@ public class Shipxy {
     /**
      * 4挂靠记录-4.2船舶挂靠指定港口记录
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/R01xw8GxYiPd08kGhDeckVojnSC">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -237,6 +263,7 @@ public class Shipxy {
     /**
      * 4挂靠记录-4.3船舶当前挂靠信息
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/O3PRwZoAjiX3DdknudicZnVpnxH">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -248,6 +275,7 @@ public class Shipxy {
     /**
      * 4挂靠记录-4.4港口挂靠历史船舶
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/G9BDwzNPqiXdyckzFrBctxYUnHd">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -259,6 +287,7 @@ public class Shipxy {
     /**
      * 5航线规划-5.1点到点航线规划
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/A3UBwJ7pViozTskSFwPcJ4Ldnze">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -270,6 +299,7 @@ public class Shipxy {
     /**
      * 5航线规划-5.2港到港航线规划
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/NpsbwNzWWiJRy2k79bscVljTntd">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -281,6 +311,7 @@ public class Shipxy {
     /**
      * 5航线规划-5.3预计到达时间(ETA)查询
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/NMxnw8fEHiRhrPkIpwTcovdfnOg">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -292,6 +323,7 @@ public class Shipxy {
     /**
      * 6气象天气-6.1单点海洋气象
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/AFfAwtwc1ifij6k5JQ9c2u3hnbh">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -303,7 +335,8 @@ public class Shipxy {
     /**
      * 6气象天气-6.2海区气象
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/EEdPwP4kqi10qjkehH5cmK2Onwc">在线文档</a></p>
-     * @param key 授权码：必填，船讯网授权码，验证服务权限
+     *
+     * @param key          授权码：必填，船讯网授权码，验证服务权限
      * @param weather_type 区域类型：必填，查询区域的类型：0：全部；1：沿岸；2：近海；3：远海。
      * @return
      */
@@ -317,6 +350,7 @@ public class Shipxy {
     /**
      * 6气象天气-6.3全球台风-获取全球台风列表
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/PuWSw4Nteir49WkMccMcryjNnbp">在线文档</a></p>
+     *
      * @param key key 授权码：必填，船讯网授权码，验证服务权限
      * @return
      */
@@ -329,7 +363,8 @@ public class Shipxy {
     /**
      * 6气象天气-6.3全球台风-获取单个台风信息
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/PuWSw4Nteir49WkMccMcryjNnbp">在线文档</a></p>
-     * @param key 授权码：必填，船讯网授权码，验证服务权限
+     *
+     * @param key        授权码：必填，船讯网授权码，验证服务权限
      * @param typhoon_id 台风序号：必填，通过查询台风列表获得
      * @return
      */
@@ -343,6 +378,7 @@ public class Shipxy {
     /**
      * 6气象天气-6.4国内港口潮汐-查询国内潮汐观测站列表
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/Ayoiw98eSi0PrpkZnLnclCy8nzd">在线文档</a></p>
+     *
      * @param key key 授权码：必填，船讯网授权码，验证服务权限
      * @return
      */
@@ -355,6 +391,7 @@ public class Shipxy {
     /**
      * 6气象天气-6.4国内港口潮汐-查询国内潮汐观测站列表
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/Ayoiw98eSi0PrpkZnLnclCy8nzd">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -366,6 +403,7 @@ public class Shipxy {
     /**
      * 8海事数据-8.1航行警告查询
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/DCgdwVip5ifCpAkQ3lfcq8OEnOc">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -377,6 +415,7 @@ public class Shipxy {
     /**
      * 9监控推送-9.1监控船队管理-创建船队
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/RtL0w0iHDioEP6kvZcScIC95nSe">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -388,6 +427,7 @@ public class Shipxy {
     /**
      * 9监控推送-9.1监控船队管理-更新船队信息
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/RtL0w0iHDioEP6kvZcScIC95nSe">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -399,7 +439,8 @@ public class Shipxy {
     /**
      * 9监控推送-9.1监控船队管理-查询船队
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/RtL0w0iHDioEP6kvZcScIC95nSe">在线文档</a></p>
-     * @param key 授权码：必填，船讯网授权码，验证服务权限
+     *
+     * @param key      授权码：必填，船讯网授权码，验证服务权限
      * @param fleet_id 船队id：必填，船队的ID，用来对船队信息进行维护的唯一标识。
      * @return
      */
@@ -413,7 +454,8 @@ public class Shipxy {
     /**
      * 9监控推送-9.1监控船队管理-删除船队
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/RtL0w0iHDioEP6kvZcScIC95nSe">在线文档</a></p>
-     * @param key 授权码：必填，船讯网授权码，验证服务权限
+     *
+     * @param key      授权码：必填，船讯网授权码，验证服务权限
      * @param fleet_id 船队id：必填，船队的ID，用来对船队信息进行维护的唯一标识。
      * @return
      */
@@ -427,9 +469,10 @@ public class Shipxy {
     /**
      * 9监控推送-9.1监控船队管理-船队船舶增加
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/RtL0w0iHDioEP6kvZcScIC95nSe">在线文档</a></p>
-     * @param key 授权码：必填，船讯网授权码，验证服务权限
+     *
+     * @param key      授权码：必填，船讯网授权码，验证服务权限
      * @param fleet_id 船队id：必填，船队的ID，用来对船队信息进行维护的唯一标识。
-     * @param mmsis 船舶清单：必填，添加船队管理的船舶，mmsi编号，以英文逗号隔开。增量更新，不变动原有船队船舶，输入的mmsi编号与原有重复时，新填入的不会增加到船队中。
+     * @param mmsis    船舶清单：必填，添加船队管理的船舶，mmsi编号，以英文逗号隔开。增量更新，不变动原有船队船舶，输入的mmsi编号与原有重复时，新填入的不会增加到船队中。
      * @return
      */
     public static JSONObject AddFleetShip(String key, String fleet_id, String mmsis) {
@@ -443,9 +486,10 @@ public class Shipxy {
     /**
      * 9监控推送-9.1监控船队管理-船队船舶批量更新
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/RtL0w0iHDioEP6kvZcScIC95nSe">在线文档</a></p>
-     * @param key 授权码：必填，船讯网授权码，验证服务权限
+     *
+     * @param key      授权码：必填，船讯网授权码，验证服务权限
      * @param fleet_id 船队id：必填，船队的ID，用来对船队信息进行维护的唯一标识。
-     * @param mmsis 船舶清单：必填，添加船队管理的船舶，mmsi编号，以英文逗号隔开。增量更新，不变动原有船队船舶，输入的mmsi编号与原有重复时，新填入的不会增加到船队中。
+     * @param mmsis    船舶清单：必填，添加船队管理的船舶，mmsi编号，以英文逗号隔开。增量更新，不变动原有船队船舶，输入的mmsi编号与原有重复时，新填入的不会增加到船队中。
      * @return
      */
     public static JSONObject UpdateFleetShip(String key, String fleet_id, String mmsis) {
@@ -459,9 +503,10 @@ public class Shipxy {
     /**
      * 9监控推送-9.1监控船队管理-船队船舶删除
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/RtL0w0iHDioEP6kvZcScIC95nSe">在线文档</a></p>
-     * @param key 授权码：必填，船讯网授权码，验证服务权限
+     *
+     * @param key      授权码：必填，船讯网授权码，验证服务权限
      * @param fleet_id 船队id：必填，船队的ID，用来对船队信息进行维护的唯一标识。
-     * @param mmsis 船舶清单：必填，添加船队管理的船舶，mmsi编号，以英文逗号隔开。删除船队管理的某一只或一批船舶，只删除现有船队中已有的船舶信息，船队中没有的船舶编号输入后，不会影响其他船舶。
+     * @param mmsis    船舶清单：必填，添加船队管理的船舶，mmsi编号，以英文逗号隔开。删除船队管理的某一只或一批船舶，只删除现有船队中已有的船舶信息，船队中没有的船舶编号输入后，不会影响其他船舶。
      * @return
      */
     public static JSONObject DeleteFleetShip(String key, String fleet_id, String mmsis) {
@@ -475,6 +520,7 @@ public class Shipxy {
     /**
      * 9监控推送-9.1监控船队管理-区域创建
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/RtL0w0iHDioEP6kvZcScIC95nSe">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -486,6 +532,7 @@ public class Shipxy {
     /**
      * 9监控推送-9.1监控船队管理-区域更新
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/RtL0w0iHDioEP6kvZcScIC95nSe">在线文档</a></p>
+     *
      * @param params
      * @return
      */
@@ -497,7 +544,8 @@ public class Shipxy {
     /**
      * 9监控推送-9.1监控船队管理-区域查询
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/RtL0w0iHDioEP6kvZcScIC95nSe">在线文档</a></p>
-     * @param key 授权码：必填，船讯网授权码，验证服务权限
+     *
+     * @param key     授权码：必填，船讯网授权码，验证服务权限
      * @param area_id 区域的ID：必填，区域的id，唯一标识，用来对区域的删改查
      * @return
      */
@@ -511,7 +559,8 @@ public class Shipxy {
     /**
      * 9监控推送-9.1监控船队管理-区域删除
      * <p><a href="https://hiiau7lsqq.feishu.cn/wiki/RtL0w0iHDioEP6kvZcScIC95nSe">在线文档</a></p>
-     * @param key 授权码：必填，船讯网授权码，验证服务权限
+     *
+     * @param key     授权码：必填，船讯网授权码，验证服务权限
      * @param area_id 区域的ID：必填，区域的id，唯一标识，用来对区域的删改查
      * @return
      */
