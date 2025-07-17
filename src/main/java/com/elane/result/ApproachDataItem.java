@@ -1,5 +1,6 @@
 package com.elane.result;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 @Data
@@ -7,10 +8,12 @@ public class ApproachDataItem {
     /**
      * 靠泊船舶信息
      */
-    private ApproachShipInfo approach_ship;
+    @SerializedName("approach_ship")
+    private ApproachShipInfo approachShip;
 
     /**
      * 靠泊事件信息
      */
-    private ApproachEventInfo approach_event;
+    @SerializedName("approach_event")
+    private ApproachEventInfo approachEvent;
 }

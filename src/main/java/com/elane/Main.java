@@ -23,11 +23,11 @@ public class Main {
 
 //        SearchPortFn();
 //        GetBerthShipsFn();
-        GetAnchorShipsFn();
+//        GetAnchorShipsFn();
 
 //        GetETAShipsFn();
 //        GetShipTrackFn();
-//        SearchshipApproachFn();
+        SearchshipApproachFn();
 
 //        GetPortofCallByShipFn();
 //        GetPortofCallByShipPortFn();
@@ -188,7 +188,7 @@ public class Main {
         params.setEnd_time(1747044218);
         SearchShipApproachResponse result = Shipxy.SearchshipApproach(params);
         System.out.println(result);
-        System.out.println(result.getData().getApproach_data().get(0).getApproach_ship().getShip_name());
+        System.out.println(result.getData().getApproach_data().get(0).getApproachShip().getShipName());
     }
 
     public static void GetPortofCallByShipFn() {

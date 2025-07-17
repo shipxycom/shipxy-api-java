@@ -1,5 +1,6 @@
 package com.elane.result;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 @Data
@@ -17,15 +18,18 @@ public class ApproachShipInfo {
     /**
      * 船舶呼号
      */
-    private String call_sign;
+    @SerializedName("call_sign")
+    private String callSign;
 
     /**
      * 船舶名称
      */
-    private String ship_name;
+    @SerializedName("ship_name")
+    private String shipName;
 
     /**
      * 船舶类型
      */
-    private Integer ship_type;
+    @SerializedName("ship_type")
+    private Integer shipType;
 }
