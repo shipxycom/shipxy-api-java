@@ -217,9 +217,11 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject GetETAShips(GetETAShipsParams params) {
+    public static GetETAShipsResponse GetETAShips(GetETAShipsParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethodJson("GetETAShips", paramMap);
+
+        String resultStr = getMethod("GetETAShips", paramMap);
+        return new Gson().fromJson(resultStr, GetETAShipsResponse.class);
     }
 
     /**
@@ -229,9 +231,11 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static JSONObject GetShipTrack(GetShipTrackParams params) {
+    public static GetShipTrackResponse GetShipTrack(GetShipTrackParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethodJson("GetShipTrack", paramMap);
+
+        String resultStr = getMethod("GetShipTrack", paramMap);
+        return new Gson().fromJson(resultStr, GetShipTrackResponse.class);
     }
 
     /**

@@ -23,10 +23,10 @@ public class Main {
 
 //        SearchPortFn();
 //        GetBerthShipsFn();
-        GetAnchorShipsFn();
+//        GetAnchorShipsFn();
 
 //        GetETAShipsFn();
-//        GetShipTrackFn();
+        GetShipTrackFn();
 //        SearchshipApproachFn();
 
 //        GetPortofCallByShipFn();
@@ -164,7 +164,7 @@ public class Main {
         params.setPort_code("CNSHG");
         params.setStart_time(1746612218);
         params.setEnd_time(1747044218);
-        JSONObject result = Shipxy.GetETAShips(params);
+        GetETAShipsResponse result = Shipxy.GetETAShips(params);
         System.out.println(result);
     }
 
@@ -174,8 +174,9 @@ public class Main {
         params.setMmsi(477172700);
         params.setStart_time(1746612218);
         params.setEnd_time(1747044218);
-        JSONObject result = Shipxy.GetShipTrack(params);
+        GetShipTrackResponse result = Shipxy.GetShipTrack(params);
         System.out.println(result);
+        System.out.println(result.getData().get(0).getUtc());
     }
 
     public static void SearchshipApproachFn() {
