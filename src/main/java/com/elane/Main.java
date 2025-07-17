@@ -15,9 +15,9 @@ public class Main {
 //        GetManyShipFn();
 //        GetFleetShipFn();
 //        GetSurRoundingShipFn();
-        GetAreaShipFn();
+//        GetAreaShipFn();
 //        GetShipRegistryFn();
-//        SearchShipParticularFn();
+        SearchShipParticularFn();
 
 //        SearchPortFn();
 //        GetBerthShipsFn();
@@ -113,13 +113,16 @@ public class Main {
     }
 
     public static void GetShipRegistryFn() {
-        JSONObject result = Shipxy.GetShipRegistry(key, 413961925);
+        ShipRegistryResponse result = Shipxy.GetShipRegistry(key, 413961925);
         System.out.println(result);
+        System.out.println(result.getData().getRegistry());
     }
 
     public static void SearchShipParticularFn() {
-        JSONObject result = Shipxy.SearchShipParticular(key, 477172700);
+        SearchShipParticularResponse result = Shipxy.SearchShipParticular(key, 477172700);
         System.out.println(result);
+        System.out.println(result.getData().get(0).getMmsi());
+        System.out.println(result.getData().get(0).getMain_engine_list().get(0).getDesigner());
     }
 
     public static void SearchPortFn() {

@@ -147,11 +147,12 @@ public class Shipxy {
      * @param mmsi 船舶mmsi编号：必填，船舶mmsi编号
      * @return
      */
-    public static JSONObject GetShipRegistry(String key, Integer mmsi) {
+    public static ShipRegistryResponse GetShipRegistry(String key, Integer mmsi) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsi", mmsi);
-        return getMethodJson("GetShipRegistry", paramMap);
+        String resultStr = getMethod("GetShipRegistry", paramMap);
+        return new Gson().fromJson(resultStr, ShipRegistryResponse.class);
     }
 
     /**
@@ -162,11 +163,12 @@ public class Shipxy {
      * @param mmsi
      * @return
      */
-    public static JSONObject SearchShipParticular(String key, Integer mmsi) {
+    public static SearchShipParticularResponse SearchShipParticular(String key, Integer mmsi) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsi", mmsi);
-        return getMethodJson("SearchShipParticular", paramMap);
+        String resultStr = getMethod("SearchShipParticular", paramMap);
+        return new Gson().fromJson(resultStr, SearchShipParticularResponse.class);
     }
 
     /**
