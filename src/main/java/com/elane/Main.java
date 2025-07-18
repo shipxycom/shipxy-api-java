@@ -2,7 +2,7 @@ package com.elane;
 
 import com.elane.api.Shipxy;
 import com.elane.request.*;
-import com.elane.result.*;
+import com.elane.response.*;
 
 public class Main {
     private static String key = com.elane.api.Key.key;

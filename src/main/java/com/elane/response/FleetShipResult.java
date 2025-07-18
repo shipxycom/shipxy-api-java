@@ -1,0 +1,149 @@
+package com.elane.response;
+
+import com.google.gson.annotations.SerializedName;
+import lombok.Data;
+
+/**
+ * extends ShipPosition 序列化的时候有问题
+ */
+@Data
+public class FleetShipResult {
+    /**
+     * 舰队ID
+     */
+    @SerializedName("fleet_id")
+    private String fleetId;
+
+    /**
+     * 船舶mmsi编号，9 位数字
+     */
+    private Integer mmsi;
+
+    /**
+     * imo编号
+     */
+    private Integer imo;
+
+    /**
+     * 船舶呼号
+     */
+    @SerializedName("call_sign")
+    private String callSign;
+
+    /**
+     * 船舶英文名称
+     */
+    @SerializedName("ship_name")
+    private String shipName;
+
+    /**
+     * 船舶中文名称
+     */
+    @SerializedName("ship_cnname")
+    private String shipCnName;
+
+    /**
+     * 数据来源，0代表岸基或船基AIS基站，1代表卫星基站
+     */
+    @SerializedName("data_source")
+    private Integer dataSource;
+
+    /**
+     * 船舶类型编号
+     */
+    @SerializedName("ship_type")
+    private Integer shipType;
+
+    /**
+     * 船舶长度，米，取值范围(0-1022)
+     */
+    private Float length;
+
+    /**
+     * 船舶宽度，米
+     */
+    private Float width;
+
+    /**
+     * 左舷距，米
+     */
+    private Float left;
+
+    /**
+     * 尾距，米
+     */
+    private Float trail;
+
+    /**
+     * 吃水深度，米
+     */
+    private Float draught;
+
+    /**
+     * 目的地，标准化后的目的地港口名称
+     */
+    private String dest;
+
+    /**
+     * 目的地代码
+     */
+    private String destcode;
+
+    /**
+     * 预计到达时间，北京时间，格式如："2025-03-03 10:51:40"
+     */
+    private String eta;
+
+    /**
+     * 预计到达时间，Unix时间戳
+     */
+    @SerializedName("eta_utc")
+    private Integer etaUtc;
+
+    /**
+     * 航行状态，0正常，-1无效数据
+     */
+    private Integer navistat;
+
+    /**
+     * 坐标纬度，WGS84坐标系
+     */
+    private Double lat;
+
+    /**
+     * 坐标经度，WGS84坐标系
+     */
+    private Double lng;
+
+    /**
+     * 船舶实时速度，单位：节，-1代表无效数据
+     */
+    private Float sog;
+
+    /**
+     * 航迹向，单位：度，-1代表无效数据
+     */
+    private Float cog;
+
+    /**
+     * 航首向，单位：度，511代表无效数据
+     */
+    private Float hdg;
+
+    /**
+     * 转向率，单位度/分钟
+     */
+    private Float rot;
+
+    /**
+     * 最后更新时间，北京时间，格式如："2025-03-26 14:00:00"
+     */
+    @SerializedName("last_time")
+    private String lastTime;
+
+    /**
+     * 最后更新时间，Unix时间戳
+     */
+    @SerializedName("last_time_utc")
+    private Integer lastTimeUtc;
+}

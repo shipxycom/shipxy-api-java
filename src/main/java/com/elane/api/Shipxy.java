@@ -7,7 +7,7 @@ import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.elane.request.*;
-import com.elane.result.*;
+import com.elane.response.*;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
