@@ -1,9 +1,13 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class AddAreaParams extends BaseObj {
+public class UpdateAreaRequest extends BaseObj {
+    /**
+     * 区域的ID，区域的id，唯一标识，用来后续对区域的删改查
+     */
+    private String area_id;
     /**
      * 区域范围，经纬度逗号分隔，多个点减号分隔，如： （lng,lat - lng,lat - lng,lat ）经纬度数，多个经纬度坐标点必须按照顺时针或逆时针依次输入。
      */

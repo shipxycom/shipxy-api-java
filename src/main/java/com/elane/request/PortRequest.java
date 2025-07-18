@@ -1,9 +1,9 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class PortParams extends BaseObj {
+public class PortRequest extends BaseObj {
     /**
      * 港口标准code,港口标准五位码
      */

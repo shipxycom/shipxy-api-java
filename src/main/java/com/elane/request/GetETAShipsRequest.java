@@ -1,13 +1,13 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class SearchshipApproachParams extends BaseObj {
+public class GetETAShipsRequest extends BaseObj {
     /**
-     * 船舶编号,船舶mmsi编号
+     * 港口标准code,港口标准五位码
      */
-    private Integer mmsi;
+    private String port_code;
     /**
      * 开始时间，utc时间戳。开始时间必须大于当前时间
      */
@@ -17,7 +17,7 @@ public class SearchshipApproachParams extends BaseObj {
      */
     private Integer end_time;
     /**
-     * 搭靠地区,1代表港口地区搭靠；2代表锚地搭靠；3代表其他地点搭靠；不填写返回全部。
+     * 船舶类型, 筛选船舶的类型，船舶类型清单请参考文档，不填写时返回全部船舶。
      */
-    private Integer approach_zone;
+    private Integer ship_type;
 }

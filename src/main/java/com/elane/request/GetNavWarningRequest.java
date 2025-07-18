@@ -1,9 +1,9 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class GetNavWarningParams extends BaseObj {
+public class GetNavWarningRequest extends BaseObj {
     /**
      * 开始时间
      */

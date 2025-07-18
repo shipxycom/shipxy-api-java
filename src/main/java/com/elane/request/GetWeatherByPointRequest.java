@@ -1,9 +1,9 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class GetWeatherByPointParams extends BaseObj {
+public class GetWeatherByPointRequest extends BaseObj {
     /**
      * utc时间，Unix时间戳。不填写则查询最近时间的气象数据。
      */

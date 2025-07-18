@@ -1,18 +1,15 @@
 package com.elane;
 
-import cn.hutool.json.JSONObject;
 import com.elane.api.Shipxy;
-import com.elane.params.*;
+import com.elane.request.*;
 import com.elane.result.*;
 
-import java.util.List;
-
 public class Main {
-//    private static String key = com.elane.api.Key.key;
-    private static String key = "请从 API控制台 申请";
+    private static String key = com.elane.api.Key.key;
+//    private static String key = "请从 API控制台 申请";
 
     public static void main(String[] args) {
-//        SearchShipFn();
+        SearchShipFn();
 //        GetSingleShipFn();
 //        GetManyShipFn();
 //        GetFleetShipFn();
@@ -63,7 +60,7 @@ public class Main {
 
 
     public static void SearchShipFn() {
-        SearchParams params = new SearchParams();
+        SearchRequest params = new SearchRequest();
         params.setKey(key);
         params.setKeywords("coco");
         params.setMax(2);
@@ -107,7 +104,7 @@ public class Main {
     }
 
     public static void GetAreaShipFn() {
-        GetAreaShipParams params = new GetAreaShipParams();
+        GetAreaShipRequest params = new GetAreaShipRequest();
         params.setKey(key);
         params.setRegion("121.289063,35.424868-122.783203,35.281501-122.167969,33.979809");
         AreaShipResponse result = Shipxy.GetAreaShip(params);
@@ -129,7 +126,7 @@ public class Main {
     }
 
     public static void SearchPortFn() {
-        SearchParams params = new SearchParams();
+        SearchRequest params = new SearchRequest();
         params.setKey(key);
         params.setKeywords("CNS");
         SearchPortResponse result = Shipxy.SearchPort(params);
@@ -138,7 +135,7 @@ public class Main {
     }
 
     public static void GetBerthShipsFn() {
-        PortParams params = new PortParams();
+        PortRequest params = new PortRequest();
         params.setKey(key);
         params.setPort_code("CNSHG");
         params.setShip_type(99);
@@ -151,7 +148,7 @@ public class Main {
     }
 
     public static void GetAnchorShipsFn() {
-        PortParams params = new PortParams();
+        PortRequest params = new PortRequest();
         params.setKey(key);
         params.setPort_code("CNSHG");
         params.setShip_type(52);
@@ -160,7 +157,7 @@ public class Main {
     }
 
     public static void GetETAShipsFn() {
-        GetETAShipsParams params = new GetETAShipsParams();
+        GetETAShipsRequest params = new GetETAShipsRequest();
         params.setKey(key);
         params.setPort_code("CNSHG");
         params.setStart_time(1746612218);
@@ -170,7 +167,7 @@ public class Main {
     }
 
     public static void GetShipTrackFn() {
-        GetShipTrackParams params = new GetShipTrackParams();
+        GetShipTrackRequest params = new GetShipTrackRequest();
         params.setKey(key);
         params.setMmsi(477172700);
         params.setStart_time(1746612218);
@@ -181,7 +178,7 @@ public class Main {
     }
 
     public static void SearchshipApproachFn() {
-        SearchshipApproachParams params = new SearchshipApproachParams();
+        SearchshipApproachRequest params = new SearchshipApproachRequest();
         params.setKey(key);
         params.setMmsi(477172700);
         params.setStart_time(1746612218);
@@ -192,7 +189,7 @@ public class Main {
     }
 
     public static void GetPortofCallByShipFn() {
-        GetPortofCallByShipParams params = new GetPortofCallByShipParams();
+        GetPortofCallByShipRequest params = new GetPortofCallByShipRequest();
         params.setKey(key);
         params.setMmsi(477172700);
         params.setStart_time(1751007589);
@@ -203,7 +200,7 @@ public class Main {
     }
 
     public static void GetPortofCallByShipPortFn() {
-        GetPortofCallByShipPortParams params = new GetPortofCallByShipPortParams();
+        GetPortofCallByShipPortRequest params = new GetPortofCallByShipPortRequest();
         params.setKey(key);
         params.setMmsi(477172700);
         params.setPort_code("CNSHG");
@@ -215,7 +212,7 @@ public class Main {
     }
 
     public static void GetShipStatusFn() {
-        GetShipStatusParams params = new GetShipStatusParams();
+        GetShipStatusRequest params = new GetShipStatusRequest();
         params.setKey(key);
         params.setMmsi(477172700);
         GetShipStatusResponse result = Shipxy.GetShipStatus(params);
@@ -224,7 +221,7 @@ public class Main {
     }
 
     public static void GetPortofCallByPortFn() {
-        GetPortofCallByPortParams params = new GetPortofCallByPortParams();
+        GetPortofCallByPortRequest params = new GetPortofCallByPortRequest();
         params.setKey(key);
         params.setPort_code("CNSHG");
         params.setStart_time(1751440300);
@@ -235,7 +232,7 @@ public class Main {
     }
 
     public static void PlanRouteByPointFn() {
-        PlanRouteByPointParams params = new PlanRouteByPointParams();
+        PlanRouteByPointRequest params = new PlanRouteByPointRequest();
         params.setKey(key);
         params.setStart_point("113.571144,22.844316");
         params.setEnd_point("121.58414,31.37979");
@@ -245,7 +242,7 @@ public class Main {
     }
 
     public static void PlanRouteByPortFn() {
-        PlanRouteByPortParams params = new PlanRouteByPortParams();
+        PlanRouteByPortRequest params = new PlanRouteByPortRequest();
         params.setKey(key);
         params.setStart_port_code("CNGZG");
         params.setEnd_port_code("CNSHG");
@@ -255,7 +252,7 @@ public class Main {
     }
 
     public static void GetSingleETAPreciseFn() {
-        GetSingleETAPreciseParams params = new GetSingleETAPreciseParams();
+        GetSingleETAPreciseRequest params = new GetSingleETAPreciseRequest();
         params.setKey(key);
         params.setMmsi(477172700);
         params.setPort_code("CNSHG");
@@ -265,7 +262,7 @@ public class Main {
     }
 
     public static void GetWeatherByPointFn() {
-        GetWeatherByPointParams params = new GetWeatherByPointParams();
+        GetWeatherByPointRequest params = new GetWeatherByPointRequest();
         params.setKey(key);
         params.setLng(123.58414);
         params.setLat(27.37979);
@@ -299,7 +296,7 @@ public class Main {
     }
 
     public static void GetTideDataFn() {
-        GetTideDataParams params = new GetTideDataParams();
+        GetTideDataRequest params = new GetTideDataRequest();
         params.setKey(key);
         params.setPort_code("8000005");
         params.setStart_date("2025-03-01");
@@ -311,7 +308,7 @@ public class Main {
     }
 
     public static void GetNavWarningFn() {
-        GetNavWarningParams params = new GetNavWarningParams();
+        GetNavWarningRequest params = new GetNavWarningRequest();
         params.setKey(key);
         params.setStart_time("2024-07-21 20:00");
         params.setEnd_time("2024-09-21 20:00");
@@ -322,7 +319,7 @@ public class Main {
     }
 
     public static void AddFleetFn() {
-        AddFleetParams params = new AddFleetParams();
+        AddFleetRequest params = new AddFleetRequest();
         params.setKey(key);
         params.setFleet_name("测试船队11");
         params.setMmsis("477985700,412751690");
@@ -332,7 +329,7 @@ public class Main {
     }
 
     public static void UpdateFleetFn() {
-        UpdateFleetParams params = new UpdateFleetParams();
+        UpdateFleetRequest params = new UpdateFleetRequest();
         params.setKey(key);
         params.setFleet_id("0372ec4c-eead-49ce-b005-6ffa731cc1df");
         params.setFleet_name("测试船队");
@@ -368,7 +365,7 @@ public class Main {
     }
 
     public static void AddAreaFn() {
-        AddAreaParams params = new AddAreaParams();
+        AddAreaRequest params = new AddAreaRequest();
         params.setKey(key);
         params.setArea_bounds("119.846180,32.345143-119.814280,32.311867-119.4661,32.291067-119.375887,32.213847");
         params.setArea_name("浙江沿海区域1");
@@ -381,7 +378,7 @@ public class Main {
     }
 
     public static void UpdateAreaFn() {
-        UpdateAreaParams params = new UpdateAreaParams();
+        UpdateAreaRequest params = new UpdateAreaRequest();
         params.setKey(key);
         params.setArea_id("b7a40fa4-daae-4586-a56a-b09457331628");
         params.setArea_bounds("119.846180,32.345143-119.814280,32.311867-119.4661,32.291067-119.375887,32.213847");

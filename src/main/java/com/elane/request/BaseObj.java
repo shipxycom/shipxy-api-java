@@ -1,4 +1,4 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 

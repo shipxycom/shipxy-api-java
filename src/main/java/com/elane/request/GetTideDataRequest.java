@@ -1,9 +1,9 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class GetTideDataParams extends BaseObj {
+public class GetTideDataRequest extends BaseObj {
     /**
      * 港口潮汐观测站id
      */

@@ -1,9 +1,9 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class GetShipTrackParams extends BaseObj {
+public class GetShipTrackRequest extends BaseObj {
     /**
      * 船舶编号,船舶mmsi编号
      */

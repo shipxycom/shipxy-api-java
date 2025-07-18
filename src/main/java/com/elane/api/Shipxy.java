@@ -6,7 +6,7 @@ import cn.hutool.core.lang.TypeReference;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.elane.params.*;
+import com.elane.request.*;
 import com.elane.result.*;
 import com.google.gson.Gson;
 
@@ -49,7 +49,7 @@ public class Shipxy {
      * @param params SearchShipParams
      * @return
      */
-    public static SearchShipResponse SearchShip(SearchParams params) {
+    public static SearchShipResponse SearchShip(SearchRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         JSONObject resultObj = postMethodJson("SearchShip", paramMap);
         return JSONUtil.toBean(resultObj, new TypeReference<SearchShipResponse>() {
@@ -133,7 +133,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static AreaShipResponse GetAreaShip(GetAreaShipParams params) {
+    public static AreaShipResponse GetAreaShip(GetAreaShipRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = getMethod("GetAreaShip", paramMap);
         return new Gson().fromJson(resultStr, AreaShipResponse.class);
@@ -178,7 +178,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static SearchPortResponse SearchPort(SearchParams params) {
+    public static SearchPortResponse SearchPort(SearchRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = getMethod("SearchPort", paramMap);
         return new Gson().fromJson(resultStr, SearchPortResponse.class);
@@ -191,7 +191,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static GetBerthShipsResponse GetBerthShips(PortParams params) {
+    public static GetBerthShipsResponse GetBerthShips(PortRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = getMethod("GetBerthShips", paramMap);
         return new Gson().fromJson(resultStr, GetBerthShipsResponse.class);
@@ -204,7 +204,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static GetAnchorShipsResponse GetAnchorShips(PortParams params) {
+    public static GetAnchorShipsResponse GetAnchorShips(PortRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = getMethod("GetAnchorShips", paramMap);
         return new Gson().fromJson(resultStr, GetAnchorShipsResponse.class);
@@ -217,7 +217,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static GetETAShipsResponse GetETAShips(GetETAShipsParams params) {
+    public static GetETAShipsResponse GetETAShips(GetETAShipsRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
 
         String resultStr = getMethod("GetETAShips", paramMap);
@@ -231,7 +231,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static GetShipTrackResponse GetShipTrack(GetShipTrackParams params) {
+    public static GetShipTrackResponse GetShipTrack(GetShipTrackRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
 
         String resultStr = getMethod("GetShipTrack", paramMap);
@@ -245,7 +245,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static SearchShipApproachResponse SearchshipApproach(SearchshipApproachParams params) {
+    public static SearchShipApproachResponse SearchshipApproach(SearchshipApproachRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = getMethod("SearchshipApproach", paramMap);
         return new Gson().fromJson(resultStr, SearchShipApproachResponse.class);
@@ -258,7 +258,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static GetPortOfCallByShipResponse GetPortofCallByShip(GetPortofCallByShipParams params) {
+    public static GetPortOfCallByShipResponse GetPortofCallByShip(GetPortofCallByShipRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = getMethod("GetPortofCallByShip", paramMap);
         return new Gson().fromJson(resultStr, GetPortOfCallByShipResponse.class);
@@ -271,7 +271,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static GetPortOfCallByShipPortResponse GetPortofCallByShipPort(GetPortofCallByShipPortParams params) {
+    public static GetPortOfCallByShipPortResponse GetPortofCallByShipPort(GetPortofCallByShipPortRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = getMethod("GetPortofCallByShipPort", paramMap);
         return new Gson().fromJson(resultStr, GetPortOfCallByShipPortResponse.class);
@@ -284,7 +284,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static GetShipStatusResponse GetShipStatus(GetShipStatusParams params) {
+    public static GetShipStatusResponse GetShipStatus(GetShipStatusRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = getMethod("GetShipStatus", paramMap);
         return new Gson().fromJson(resultStr, GetShipStatusResponse.class);
@@ -297,7 +297,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static GetPortOfCallByPortResponse GetPortofCallByPort(GetPortofCallByPortParams params) {
+    public static GetPortOfCallByPortResponse GetPortofCallByPort(GetPortofCallByPortRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = getMethod("GetPortofCallByPort", paramMap);
         return new Gson().fromJson(resultStr, GetPortOfCallByPortResponse.class);
@@ -310,7 +310,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static PlanRouteByPointResponse PlanRouteByPoint(PlanRouteByPointParams params) {
+    public static PlanRouteByPointResponse PlanRouteByPoint(PlanRouteByPointRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = getMethod("PlanRouteByPoint", paramMap);
         return new Gson().fromJson(resultStr, PlanRouteByPointResponse.class);
@@ -323,7 +323,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static PlanRouteByPortResponse PlanRouteByPort(PlanRouteByPortParams params) {
+    public static PlanRouteByPortResponse PlanRouteByPort(PlanRouteByPortRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = getMethod("PlanRouteByPort", paramMap);
         return new Gson().fromJson(resultStr, PlanRouteByPortResponse.class);
@@ -336,7 +336,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static GetSingleETAPreciseResponse GetSingleETAPrecise(GetSingleETAPreciseParams params) {
+    public static GetSingleETAPreciseResponse GetSingleETAPrecise(GetSingleETAPreciseRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
 
         String resultStr = getMethod("GetSingleETAPrecise", paramMap);
@@ -350,7 +350,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static GetWeatherByPointResponse GetWeatherByPoint(GetWeatherByPointParams params) {
+    public static GetWeatherByPointResponse GetWeatherByPoint(GetWeatherByPointRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
 
         String resultStr = getMethod("GetWeatherByPoint", paramMap);
@@ -427,7 +427,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static GetTideDataResponse GetTideData(GetTideDataParams params) {
+    public static GetTideDataResponse GetTideData(GetTideDataRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
 
         String resultStr = getMethod("GetTideData", paramMap);
@@ -441,7 +441,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static GetNavWarningResponse GetNavWarning(GetNavWarningParams params) {
+    public static GetNavWarningResponse GetNavWarning(GetNavWarningRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
 
         String resultStr = getMethod("GetNavWarning", paramMap);
@@ -455,7 +455,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static FleetResponse AddFleet(AddFleetParams params) {
+    public static FleetResponse AddFleet(AddFleetRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
 
         String resultStr = postMethod("AddFleet", paramMap);
@@ -469,7 +469,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static FleetResponse UpdateFleet(UpdateFleetParams params) {
+    public static FleetResponse UpdateFleet(UpdateFleetRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
 
         String resultStr = postMethod("UpdateFleet", paramMap);
@@ -571,7 +571,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static AreaResponse AddArea(AddAreaParams params) {
+    public static AreaResponse AddArea(AddAreaRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
 
         String resultStr = postMethod("AddArea", paramMap);
@@ -585,7 +585,7 @@ public class Shipxy {
      * @param params
      * @return
      */
-    public static AreaResponse UpdateArea(UpdateAreaParams params) {
+    public static AreaResponse UpdateArea(UpdateAreaRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = postMethod("UpdateArea", paramMap);
         return new Gson().fromJson(resultStr, AreaResponse.class);

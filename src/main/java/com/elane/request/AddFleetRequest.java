@@ -1,9 +1,9 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class AddFleetParams extends BaseObj {
+public class AddFleetRequest extends BaseObj {
     /**
      * 船队名称，为您创建的船队起名，用来后续查询和区分
      */

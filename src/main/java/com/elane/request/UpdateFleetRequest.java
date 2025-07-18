@@ -1,9 +1,9 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class UpdateFleetParams extends BaseObj {
+public class UpdateFleetRequest extends BaseObj {
     /**
      * 船队id,船队的ID，用来对船队信息进行维护的唯一标识。
      */

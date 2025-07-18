@@ -1,9 +1,9 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class SearchParams extends BaseObj {
+public class SearchRequest extends BaseObj {
     /**
      * 关键字，船舶查询的输入关键字，可以是船名、呼号、MMSI、IMO 等，匹配原则：MMSI 为 9 位数, IMO 为 7 位数
      */

@@ -1,17 +1,17 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class PlanRouteByPortParams extends BaseObj {
+public class PlanRouteByPointRequest extends BaseObj {
     /**
-     * 出发港PortCode港口标准五位码
+     * 起始点，出发的位置点，lng,lat
      */
-    private String start_port_code;
+    private String start_point;
     /**
-     * 到达港PortCode港口标准五位码
+     * 结束点，到达的位置点，lng,lat
      */
-    private String end_port_code;
+    private String end_point;
     /**
      * 绕航节点,需要避让的节点，id详见附录7 。绕航多节点时，不同id之间使用逗号分隔；不填则不绕航；一次请求绕航的节点控制在10个以内
      */

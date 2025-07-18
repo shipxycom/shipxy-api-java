@@ -1,9 +1,9 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class GetPortofCallByShipPortParams extends BaseObj {
+public class GetPortofCallByShipRequest extends BaseObj {
     /**
      * 船舶编号,船舶mmsi编号
      */
@@ -22,10 +22,6 @@ public class GetPortofCallByShipPortParams extends BaseObj {
      * 提示：如果不同船舶的呼号相同，则相同呼号船舶的靠港记录都将返回
      */
     private String call_sign;
-    /**
-     * 港口标准五位码
-     */
-    private String port_code;
     /**
      * 历史靠港记录开始时间，Unix 时间戳start_time与end_time为必填项，表示查询[start_time，end_time]之间的结果，最多1次只能查询1年（366天）的靠港记录
      */

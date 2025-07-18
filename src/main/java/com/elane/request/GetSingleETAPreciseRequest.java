@@ -1,9 +1,9 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class GetSingleETAPreciseParams extends BaseObj {
+public class GetSingleETAPreciseRequest extends BaseObj {
     /**
      * 船舶mmsi编号，9 位数字
      */

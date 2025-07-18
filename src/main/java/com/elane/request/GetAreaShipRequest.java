@@ -1,9 +1,9 @@
-package com.elane.params;
+package com.elane.request;
 
 import lombok.Data;
 
 @Data
-public class GetAreaShipParams extends BaseObj {
+public class GetAreaShipRequest extends BaseObj {
     /**
      * 查询区域,经纬度逗号分隔，多个点减号分隔，如：（lng,lat - lng,lat ）经纬度数，多个经纬度坐标点必须按照顺时针或逆时针依次输入。
      */
