@@ -3,6 +3,9 @@ package com.elane.result;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+/**
+ * extends ShipPosition 序列化的时候有问题
+ */
 @Data
 public class FleetShipResult {
     /**

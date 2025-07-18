@@ -17,5 +17,6 @@ public class FleetShipResponse {
     /**
      * 数据
      */
+//    private List<ShipPosition> data;
     private List<FleetShipResult> data;
 }

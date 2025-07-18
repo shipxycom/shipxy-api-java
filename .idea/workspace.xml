@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3ae0399c-e52c-4260-a3a7-4b319c5ecf18" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/result/FleetShipResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/FleetShipResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/result/FleetShipResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/result/FleetShipResult.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +35,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": -1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: -1
+}</component>
   <component name="ProjectId" id="2ztiEpPcyhyxAFt3WSkaS4P5MMQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -50,7 +51,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/workspace/idea/shipxy-api-java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/workspace/idea/shipxy-api-demo&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
