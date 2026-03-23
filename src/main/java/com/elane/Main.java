@@ -9,7 +9,7 @@ public class Main {
 //    private static String key = "请从 API控制台 申请";
 
     public static void main(String[] args) {
-//        SearchShipFn();
+        SearchShipFn();
 //        GetSingleShipFn();
 //        GetManyShipFn();
 //        GetFleetShipFn();
@@ -20,7 +20,7 @@ public class Main {
 
 //        SearchPortFn();
 //        GetBerthShipsFn();
-        GetAnchorShipsFn();
+//        GetAnchorShipsFn();
 
 //        GetETAShipsFn();
 //        GetShipTrackFn();
@@ -192,8 +192,8 @@ public class Main {
         GetPortofCallByShipRequest params = new GetPortofCallByShipRequest();
         params.setKey(key);
         params.setMmsi(477172700);
-        params.setStart_time(1751007589);
-        params.setEnd_time(1751440378);
+        params.setStart_time(1772007589);
+        params.setEnd_time(1772440378);
         GetPortOfCallByShipResponse result = Shipxy.GetPortofCallByShip(params);
         System.out.println(result);
         System.out.println(result.getData().get(0).getShipName());
@@ -204,11 +204,11 @@ public class Main {
         params.setKey(key);
         params.setMmsi(477172700);
         params.setPort_code("CNSHG");
-        params.setStart_time(1751007589);
-        params.setEnd_time(1751440378);
+        params.setStart_time(1772007589);
+        params.setEnd_time(1774245163);
         GetPortOfCallByShipPortResponse result = Shipxy.GetPortofCallByShipPort(params);
         System.out.println(result);
-        System.out.println(result.getData().get(0).getShipName());
+        System.out.println(result.getData());
     }
 
     public static void GetShipStatusFn() {
@@ -224,11 +224,11 @@ public class Main {
         GetPortofCallByPortRequest params = new GetPortofCallByPortRequest();
         params.setKey(key);
         params.setPort_code("CNSHG");
-        params.setStart_time(1751440300);
-        params.setEnd_time(1751440378);
+        params.setStart_time(1772440300);
+        params.setEnd_time(1772440378);
         GetPortOfCallByPortResponse result = Shipxy.GetPortofCallByPort(params);
         System.out.println(result);
-        System.out.println(result.getData().get(0).getMmsi());
+        System.out.println(result.getData());
     }
 
     public static void PlanRouteByPointFn() {
