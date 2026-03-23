@@ -34,11 +34,13 @@ public class Shipxy {
 
     public static JSONObject getMethodJson(String methodName, Map<String, Object> paramMap) {
         String resultStr = HttpUtil.get(apiUrl + "/" + methodName, paramMap);
+        System.out.println(resultStr);
         return JSONUtil.parseObj(resultStr);
     }
 
     public static JSONObject postMethodJson(String methodName, Map<String, Object> paramMap) {
         String resultStr = HttpUtil.post(apiUrl + "/" + methodName, paramMap);
+        System.out.println(resultStr);
         return JSONUtil.parseObj(resultStr);
     }
 
