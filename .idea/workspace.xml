@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3ae0399c-e52c-4260-a3a7-4b319c5ecf18" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/api/Shipxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/api/Shipxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elane/response/TyphoonListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elane/response/TyphoonListItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +42,7 @@
 }</component>
   <component name="ProjectId" id="2ztiEpPcyhyxAFt3WSkaS4P5MMQ" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
@@ -116,7 +118,9 @@
       <workItem from="1774229061016" duration="808000" />
       <workItem from="1774230836632" duration="522000" />
       <workItem from="1774231577888" duration="5000" />
-      <workItem from="1774231628275" duration="202000" />
+      <workItem from="1774231628275" duration="1098000" />
+      <workItem from="1774232887376" duration="1794000" />
+      <workItem from="1774236656604" duration="57000" />
     </task>
     <servers />
   </component>

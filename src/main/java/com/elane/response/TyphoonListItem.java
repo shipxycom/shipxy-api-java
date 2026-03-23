@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class TyphoonListItem {
     @SerializedName("typhoon_id")
-    private Integer typhoonId;
+    private String typhoonId;
 
     @SerializedName("typhoon_code")
     private Integer typhoonCode;

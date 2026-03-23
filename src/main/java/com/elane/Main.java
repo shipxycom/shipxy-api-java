@@ -9,7 +9,7 @@ public class Main {
 //    private static String key = "请从 API控制台 申请";
 
     public static void main(String[] args) {
-        SearchShipFn();
+//        SearchShipFn();
 //        GetSingleShipFn();
 //        GetManyShipFn();
 //        GetFleetShipFn();
@@ -37,7 +37,7 @@ public class Main {
 
 //        GetWeatherByPointFn();
 //        GetWeatherFn();
-//        GetAllTyphoonFn();
+        GetAllTyphoonFn();
 //        GetSingleTyphoonFn();
 //        GetTidesFn();
 //        GetTideDataFn();
