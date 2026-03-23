@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class TyphoonDetailItem {
     @SerializedName("typhoon_id")
-    private Integer typhoonId;
+    private String typhoonId;
 
     @SerializedName("typhoon_time")
     private String typhoonTime;
@@ -36,11 +36,11 @@ public class TyphoonDetailItem {
     private Float radius10;
 
     @SerializedName("radius7_s")
-    private Float radius7S;
+    private String radius7S;
 
     @SerializedName("radius10_s")
-    private Float radius10S;
+    private String radius10S;
 
     @SerializedName("radius12_s")
-    private Float radius12S;
+    private String radius12S;
 }

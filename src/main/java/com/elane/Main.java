@@ -37,8 +37,8 @@ public class Main {
 
 //        GetWeatherByPointFn();
 //        GetWeatherFn();
-        GetAllTyphoonFn();
-//        GetSingleTyphoonFn();
+//        GetAllTyphoonFn();
+        GetSingleTyphoonFn();
 //        GetTidesFn();
 //        GetTideDataFn();
 
