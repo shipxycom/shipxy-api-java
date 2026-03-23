@@ -40,4 +40,8 @@ public class PortData {
      */
     @SerializedName("port_country_cnname")
     private String portCountryCnName;
+
+    @SerializedName("port_country_code")
+    private String portCountryCode;
+
 }

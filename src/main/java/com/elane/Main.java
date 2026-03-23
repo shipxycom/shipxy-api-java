@@ -20,7 +20,7 @@ public class Main {
 
 //        SearchPortFn();
 //        GetBerthShipsFn();
-//        GetAnchorShipsFn();
+        GetAnchorShipsFn();
 
 //        GetETAShipsFn();
 //        GetShipTrackFn();
@@ -38,7 +38,7 @@ public class Main {
 //        GetWeatherByPointFn();
 //        GetWeatherFn();
 //        GetAllTyphoonFn();
-        GetSingleTyphoonFn();
+//        GetSingleTyphoonFn();
 //        GetTidesFn();
 //        GetTideDataFn();
 

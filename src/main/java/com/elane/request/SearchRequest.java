@@ -11,5 +11,5 @@ public class SearchRequest extends BaseObj {
     /**
      * 最大返回数量，最多返回的结果数量，该值最大 100
      */
-    private Integer max;
+    private Integer max = 10;
 }
