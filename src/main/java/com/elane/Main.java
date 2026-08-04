@@ -5,8 +5,8 @@ import com.elane.request.*;
 import com.elane.response.*;
 
 public class Main {
-    private static String key = com.elane.api.Key.key;
-//    private static String key = "请从 API控制台 申请";
+//    private static String key = com.elane.api.Key.key;
+    private static String key = "请从 API控制台 申请";
 
     public static void main(String[] args) {
         SearchShipFn();
