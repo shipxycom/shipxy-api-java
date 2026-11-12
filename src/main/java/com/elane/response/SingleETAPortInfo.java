@@ -26,7 +26,7 @@ public class SingleETAPortInfo {
     @SerializedName("port_country_cnname")
     private String portCountryCnname;
 
-    private Double ata;
-    private Double atb;
-    private Double atd;
+    private String ata;
+    private String atb;
+    private String atd;
 }

@@ -20,4 +20,6 @@ public class PlanRouteByPointRequest extends BaseObj {
      * 途经点,必经的点，lng,lat - lng,lat；多点之间用“-”连接；不填则不必经；一次请求途经的节点控制在30个以内
      */
     private String through;
+    /** 与end_point至少填写一项；两者都填时港口优先。 */
+    private String end_port_code;
 }

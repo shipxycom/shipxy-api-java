@@ -21,25 +21,25 @@ public class Shipxy {
     private static String apiUrl = "https://api.shipxy.com/apicall/v3";
 
     public static String getMethod(String methodName, Map<String, Object> paramMap) {
-        String resultStr = HttpUtil.get(apiUrl + "/" + methodName, paramMap);
+        String resultStr = HttpUtil.get(apiUrl + "/" + methodName, withoutNulls(paramMap));
         System.out.println(resultStr);
         return resultStr;
     }
 
     public static String postMethod(String methodName, Map<String, Object> paramMap) {
-        String resultStr = HttpUtil.post(apiUrl + "/" + methodName, paramMap);
+        String resultStr = HttpUtil.post(apiUrl + "/" + methodName, withoutNulls(paramMap));
         System.out.println(resultStr);
         return resultStr;
     }
 
     public static JSONObject getMethodJson(String methodName, Map<String, Object> paramMap) {
-        String resultStr = HttpUtil.get(apiUrl + "/" + methodName, paramMap);
+        String resultStr = HttpUtil.get(apiUrl + "/" + methodName, withoutNulls(paramMap));
         System.out.println(resultStr);
         return JSONUtil.parseObj(resultStr);
     }
 
     public static JSONObject postMethodJson(String methodName, Map<String, Object> paramMap) {
-        String resultStr = HttpUtil.post(apiUrl + "/" + methodName, paramMap);
+        String resultStr = HttpUtil.post(apiUrl + "/" + methodName, withoutNulls(paramMap));
         System.out.println(resultStr);
         return JSONUtil.parseObj(resultStr);
     }
@@ -407,6 +407,11 @@ public class Shipxy {
      * @return
      */
     public static GetSingleTyphoonResponse GetSingleTyphoon(String key, Integer typhoon_id) {
+        return GetSingleTyphoon(key, String.valueOf(typhoon_id));
+    }
+
+    /** 使用官方字符串台风ID查询，保留旧Integer重载。 */
+    public static GetSingleTyphoonResponse GetSingleTyphoon(String key, String typhoon_id) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("typhoon_id", typhoon_id);
@@ -668,5 +673,86 @@ public class Shipxy {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         JSONObject result = getMethodJson("HistoryWeather", paramMap);
         return JSONUtil.toBean(result, new TypeReference<GlobalWeatherResponse>() {}, true);
+    }
+
+    /** 独立航速提醒订阅。持续时间单位分钟。 */
+    public static BaseResponse SubShipAlertOfSpeed(String key, String mmsi, String speed_limit, Double speed_duration) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("key", key);
+        params.put("mmsi", mmsi);
+        params.put("speed_limit", speed_limit);
+        if (speed_duration != null) params.put("speed_duration", speed_duration);
+        return JSONUtil.toBean(getMethodJson("SubShipAlertOfSpeed", params), new TypeReference<BaseResponse>() {}, true);
+    }
+
+    /** 独立航速提醒订阅。持续时间单位分钟。 */
+    public static BaseResponse UnsubShipAlertOfSpeed(String key, String mmsi) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("key", key);
+        params.put("mmsi", mmsi);
+        return JSONUtil.toBean(getMethodJson("UnsubShipAlertOfSpeed", params), new TypeReference<BaseResponse>() {}, true);
+    }
+
+    /** 独立航速提醒订阅。持续时间单位分钟。 */
+    public static SearchSubShipAlertOfSpeedResponse SearchSubShipAlertOfSpeed(String key) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("key", key);
+        return JSONUtil.toBean(getMethodJson("SearchSubShipAlertOfSpeed", params), new TypeReference<SearchSubShipAlertOfSpeedResponse>() {}, true);
+    }
+
+    /** 省略持续时间时使用服务端默认5分钟。 */
+    public static BaseResponse SubShipAlertOfSpeed(String key, String mmsi, String speed_limit) {
+        return SubShipAlertOfSpeed(key, mmsi, speed_limit, null);
+    }
+
+    /** 返回图片字节；光栅图需配合海图JS及相应权限，地图图层可用URL方法。 */
+    public static byte[] GetShipRasterImage(String key, Integer tile_type, Integer x, Integer y, Integer z) {
+        try (cn.hutool.http.HttpResponse response = cn.hutool.http.HttpRequest.get(GetShipRasterImageUrl(key, tile_type, x, y, z)).execute()) {
+            if (!response.isOk()) throw new IllegalStateException("Image request failed: " + response.getStatus());
+            return response.bodyBytes();
+        }
+    }
+
+    /** 仅构造地图图层URL，不发送请求。 */
+    public static String GetShipRasterImageUrl(String key, Integer tile_type, Integer x, Integer y, Integer z) {
+        Map<String, Object> params = new java.util.LinkedHashMap<>();
+        params.put("key", key);
+        params.put("tile_type", tile_type);
+        params.put("x", x);
+        params.put("y", y);
+        params.put("z", z);
+        return buildImageUrl("GetShipRasterImage", params);
+    }
+
+    /** 返回图片字节；光栅图需配合海图JS及相应权限，地图图层可用URL方法。 */
+    public static byte[] GetPortTile(String key, String projection_type, Integer x, Integer y, Integer z) {
+        try (cn.hutool.http.HttpResponse response = cn.hutool.http.HttpRequest.get(GetPortTileUrl(key, projection_type, x, y, z)).execute()) {
+            if (!response.isOk()) throw new IllegalStateException("Image request failed: " + response.getStatus());
+            return response.bodyBytes();
+        }
+    }
+
+    /** 仅构造地图图层URL，不发送请求。 */
+    public static String GetPortTileUrl(String key, String projection_type, Integer x, Integer y, Integer z) {
+        Map<String, Object> params = new java.util.LinkedHashMap<>();
+        params.put("key", key);
+        params.put("projection_type", projection_type);
+        params.put("x", x);
+        params.put("y", y);
+        params.put("z", z);
+        return buildImageUrl("GetPortTile", params);
+    }
+
+    private static String buildImageUrl(String name, Map<String, Object> params) {
+        return apiUrl + "/" + name + "?" + params.entrySet().stream().map(entry -> {
+            try {
+                return java.net.URLEncoder.encode(entry.getKey(), "UTF-8") + "=" + java.net.URLEncoder.encode(String.valueOf(entry.getValue()), "UTF-8");
+            } catch (java.io.UnsupportedEncodingException e) { throw new IllegalStateException(e); }
+        }).collect(java.util.stream.Collectors.joining("&"));
+    }
+    private static Map<String, Object> withoutNulls(Map<String, Object> values) {
+        Map<String, Object> filtered = new HashMap<>();
+        values.forEach((key, value) -> { if (value != null) filtered.put(key, value); });
+        return filtered;
     }
 }
