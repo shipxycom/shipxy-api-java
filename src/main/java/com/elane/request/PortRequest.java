@@ -12,4 +12,6 @@ public class PortRequest extends BaseObj {
      * 船舶类型, 筛选船舶的类型，船舶类型清单请参考文档，不填写时返回全部船舶。
      */
     private Integer ship_type;
+    /** 官方文档新增的可选筛选参数。 */
+    private Integer search_type;
 }

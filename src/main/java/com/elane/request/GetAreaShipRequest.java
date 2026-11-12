@@ -16,4 +16,6 @@ public class GetAreaShipRequest extends BaseObj {
      * 会话令牌,当区域范围船舶单次请求无法全部返回时，可以根据首次请求返回的scode再次请求剩余的数据，保证全部返回。
      */
     private Integer scode;
+    /** 官方文档新增的可选筛选参数。 */
+    private Integer data_type;
 }

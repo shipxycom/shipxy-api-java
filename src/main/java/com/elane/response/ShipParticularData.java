@@ -127,7 +127,7 @@ public class ShipParticularData {
     private String shipmanagerCountryCode;
 
     /** 船舶管理者所属国家 */
-    @SerializedName("shipmanager_country")
+    @SerializedName(value = "shipmanager_country", alternate = {"shipManager_country"})
     private String shipmanagerCountry;
 
     /** 船舶经营者代码 */
@@ -221,4 +221,7 @@ public class ShipParticularData {
     /** 档案数据更新时间，格式：2016-01-01 12:12:30 */
     @SerializedName("update_time")
     private String updateTime;
+    /** 船舶状态生效日期。 */
+    @SerializedName("status_effective_date")
+    private String statusEffectiveDate;
 }

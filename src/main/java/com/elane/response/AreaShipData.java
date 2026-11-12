@@ -13,4 +13,8 @@ public class AreaShipData {
     private Integer continue_;
     @SerializedName("ship_list")
     private List<ShipPosition> shipList;
+    @SerializedName("aton_list")
+    private List<AtonData> atonList;
+    @SerializedName("netbuoy_list")
+    private List<NetBuoyData> netbuoyList;
 }

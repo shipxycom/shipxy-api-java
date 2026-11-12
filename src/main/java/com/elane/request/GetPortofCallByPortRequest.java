@@ -9,7 +9,7 @@ public class GetPortofCallByPortRequest extends BaseObj {
      */
     private String port_code;
     /**
-     * 历史靠港记录开始时间，unix 时间戳，start_time与end_time为必填项，表示查询[start_time，end_time]之间的结果，最多1次只能查询1年（366天）的靠港记录
+     * 历史靠港记录开始时间，unix 时间戳，start_time与end_time为必填项，表示查询[start_time，end_time]之间的结果，最多1次只能查询1周的靠港记录
      */
     private Integer start_time;
     /**

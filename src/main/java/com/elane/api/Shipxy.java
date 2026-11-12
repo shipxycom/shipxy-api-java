@@ -53,7 +53,7 @@ public class Shipxy {
      */
     public static SearchShipResponse SearchShip(SearchRequest params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        JSONObject resultObj = postMethodJson("SearchShip", paramMap);
+        JSONObject resultObj = getMethodJson("SearchShip", paramMap);
         return JSONUtil.toBean(resultObj, new TypeReference<SearchShipResponse>() {
         }, true);
     }
@@ -166,9 +166,17 @@ public class Shipxy {
      * @return
      */
     public static SearchShipParticularResponse SearchShipParticular(String key, Integer mmsi) {
+        return SearchShipParticular(key, mmsi, null, null, null);
+    }
+
+    /** 按 MMSI、IMO、呼号或船名查询档案，至少填写一项。保留原双参数方法兼容已有调用。 */
+    public static SearchShipParticularResponse SearchShipParticular(String key, Integer mmsi, Integer imo, String call_sign, String ship_name) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
-        paramMap.put("mmsi", mmsi);
+        if (mmsi != null) paramMap.put("mmsi", mmsi);
+        if (imo != null) paramMap.put("imo", imo);
+        if (call_sign != null) paramMap.put("call_sign", call_sign);
+        if (ship_name != null) paramMap.put("ship_name", ship_name);
         String resultStr = getMethod("SearchShipParticular", paramMap);
         return new Gson().fromJson(resultStr, SearchShipParticularResponse.class);
     }
