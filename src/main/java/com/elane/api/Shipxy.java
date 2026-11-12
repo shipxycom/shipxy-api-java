@@ -625,4 +625,40 @@ public class Shipxy {
         String resultStr = postMethod("DeleteArea", paramMap);
         return new Gson().fromJson(resultStr, BaseResponse.class);
     }
+
+    /** 查询全球潮汐观测站列表。 */
+    public static GetGlobalTidesResponse GetGlobalTides(String key) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("key", key);
+        JSONObject result = getMethodJson("GetGlobalTides", paramMap);
+        return JSONUtil.toBean(result, new TypeReference<GetGlobalTidesResponse>() {}, true);
+    }
+
+    /** 查询全球观测站潮汐。port_code 为观测站 ID；日期 yyyy-MM-dd，单次不超过90天，未来不超过30天。 */
+    public static GetGlobalTideDataResponse GetGlobalTideData(GetGlobalTideDataRequest params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        JSONObject result = getMethodJson("GetGlobalTideData", paramMap);
+        return JSONUtil.toBean(result, new TypeReference<GetGlobalTideDataResponse>() {}, true);
+    }
+
+    /** 查询 WGS84 坐标的实时大气和海洋气象。 */
+    public static GlobalWeatherResponse CurrentWeather(GlobalWeatherRequest params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        JSONObject result = getMethodJson("CurrentWeather", paramMap);
+        return JSONUtil.toBean(result, new TypeReference<GlobalWeatherResponse>() {}, true);
+    }
+
+    /** 查询 WGS84 坐标的未来大气和海洋气象预报。 */
+    public static GlobalWeatherResponse FutureWeather(GlobalWeatherRequest params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        JSONObject result = getMethodJson("FutureWeather", paramMap);
+        return JSONUtil.toBean(result, new TypeReference<GlobalWeatherResponse>() {}, true);
+    }
+
+    /** 查询历史气象。时间为北京时间 yyyy-MM-dd HH:mm:ss，单次不超过1个月，开始不早于3年前，结束须在24小时前。 */
+    public static GlobalWeatherResponse HistoryWeather(HistoryWeatherRequest params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        JSONObject result = getMethodJson("HistoryWeather", paramMap);
+        return JSONUtil.toBean(result, new TypeReference<GlobalWeatherResponse>() {}, true);
+    }
 }
