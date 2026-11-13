@@ -23,6 +23,6 @@ public class GetWeatherByPointData
     @SerializedName("publish_time")
     private String publishTime;
 
-    private Float lng;
-    private Float lat;
+    private Double lng;
+    private Double lat;
 }

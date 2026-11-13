@@ -46,7 +46,7 @@ public class PortOfCallData {
     @SerializedName("port_country_code")
     private String portCountryCode;            // 港口所在国家代码
 
-    @SerializedName("arrival_anchorage")
+    @SerializedName(value = "arrival_anchorage", alternate = {"arrval_anchorage"})
     private String arrivalAnchorage;           // 到达锚地
 
     private String ata;                        // 实际到达时间（ATA）
@@ -64,6 +64,6 @@ public class PortOfCallData {
     @SerializedName("stay_time")
     private Double stayTime;                   // 停留时间
 
-    @SerializedName("stay_terminal_time")
+    @SerializedName(value = "stay_terminal_time", alternate = {"stay_interminal_time"})
     private Double stayTerminalTime;           // 码头停留时间
 }

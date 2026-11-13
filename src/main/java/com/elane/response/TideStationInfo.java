@@ -21,9 +21,9 @@ public class TideStationInfo {
     @SerializedName("port_country_name")
     private String portCountryName;
 
-    private Float lat;
+    private Double lat;
 
-    private Float lng;
+    private Double lng;
 
     @SerializedName("port_time_zone")
     private String portTimeZone;

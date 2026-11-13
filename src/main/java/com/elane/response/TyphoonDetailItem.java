@@ -15,9 +15,9 @@ public class TyphoonDetailItem {
 
     private String fhour;
 
-    private Float lat;
+    private Double lat;
 
-    private Float lng;
+    private Double lng;
 
     private Integer grade;
 

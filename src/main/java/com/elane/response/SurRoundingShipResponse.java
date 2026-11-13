@@ -6,6 +6,8 @@ import java.util.List;
 
 @Data
 public class SurRoundingShipResponse {
+    /** 周边船舶总数。 */
+    private Integer total;
     /**
      * 状态
      */

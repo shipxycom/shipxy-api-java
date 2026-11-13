@@ -14,12 +14,12 @@ public class ApproachEventInfo {
     /**
      * 纬度
      */
-    private Float lat;
+    private Double lat;
 
     /**
      * 经度
      */
-    private Float lng;
+    private Double lng;
 
     /**
      * 港口代码
